@@ -1,0 +1,9 @@
+Solucionar glColorArray. Colores diferentes para cada modo. 
+Hacer modo diferido  
+Hacer modo ajedrez (el modo Ajedrez debe ser independiente del modo de dibujado Diferido e Inmediato, es decir, un método a parte solo para el modo Ajedrez. el método para el modo ajedrez debe poder dibujar tanto en inmediato como en diferido)
+Cubo fill defecto 
+Activar los 3 modos a la vez. Hacer que se pueda activar y desactivar el menu. 
+
+P2 
+P3 
+P4 
