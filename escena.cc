@@ -16,12 +16,11 @@ Escena::Escena()
     Observer_distance = 4*Front_plane;
     Observer_angle_x  = 0.0 ;
     Observer_angle_y  = 0.0 ;
-	objetoActivo = NINGUNO;
 
     ejes.changeAxisSize( 5000 );
 
 	// Crear los objetos de la escena
-  cubo = new Cubo(100.0);
+   cubo = new Cubo(100.0);
 	tetraedro = new Tetraedro();
 
 }
@@ -38,6 +37,7 @@ void Escena::inicializar( int UI_window_width, int UI_window_height )
 
 	glEnable( GL_DEPTH_TEST );	// se habilita el z-bufer
    glEnable( GL_CULL_FACE );
+   glEnableClientState(GL_COLOR_ARRAY);
 	Width  = UI_window_width/10;
 	Height = UI_window_height/10;
 
@@ -69,15 +69,16 @@ void Escena::dibujar()
  
    // Modo de visualizar 
    if (modoVisualizar == PUNTOS) {
-         glPointSize(10);
-         glEnableClientState(GL_COLOR_ARRAY); 
+         glPointSize(10); 
          glColorPointer(3, GL_FLOAT, 0, cubo->cpuntos.data());   
          glPolygonMode(GL_FRONT, GL_POINT);
    } 
-   else if (modoVisualizar == LINEAS) {    
+   else if (modoVisualizar == LINEAS) {
+      glColorPointer(3, GL_FLOAT, 0, cubo->clineas.data());    
       glPolygonMode(GL_FRONT, GL_LINE);
    } 
    else if (modoVisualizar == SOLIDO) {
+      glColorPointer(3, GL_FLOAT, 0, cubo->crelleno.data());
       glPolygonMode(GL_FRONT, GL_FILL);
    } 
    else if (modoVisualizar == AJEDREZ) {
