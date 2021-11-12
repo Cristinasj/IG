@@ -25,16 +25,6 @@ void Malla3D::draw_ModoInmediato()
 {
   // visualizar la malla usando glDrawElements
   // completar (práctica 1)
-  // Habilitar uso de un array de vértices
-  // glEnableClientState( GL_VERTEX_ARRAY);
-  // indicar el formato y la dirección de memoria del array de vértices
-  // (son tuplas de 3 valores float, sin espacio entre ellas)
-  // glVertexPointer(3, GL_FLOAT, 0, v.data());
-  // visualizar, indicando: tipo de primitiva,número de índices,
-  // tipo de los índices, y la dirección de la tabla de índices
-  // glDrawElements( GL_TRIANGLES, f.size()*3, GL_UNSIGNED_INT, f.data());
-  // deshabilitar array de vértices
-  // glDisableClientState(GL_VERTEX_ARRAY);
    glEnableClientState(GL_VERTEX_ARRAY);
    glVertexPointer(3,GL_FLOAT, 0, v.data());
    glDrawElements(GL_TRIANGLES,3*f.size(),GL_UNSIGNED_INT, f.data());
