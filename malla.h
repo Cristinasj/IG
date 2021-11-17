@@ -22,9 +22,13 @@ class Malla3D
 {
    public:
 
-   // Creación VBO 
-   GLuint CrearVBO (GLuint tipo_vbo, GLuint tamanio_bytes, 
-                  GLvoid * puntero_ram); 
+   /* Creación VBO
+      tipo vbo = vértices GL_ARRAY_BUFFER o triángulos GL_ELEMENT_ARRAY_BUFFER 
+      tamaño bytes = del VBO 
+      puntero ram = donde están los datos  
+      devuelve = identificador VBO 
+   */ 
+   unsigned int CrearVBO (unsigned int tipo_vbo, unsigned int tamanio_bytes, void * puntero_ram); 
 
    // dibuja el objeto en modo inmediato
    void draw_ModoInmediato();
@@ -43,8 +47,8 @@ class Malla3D
 
    std::vector<Tupla3f> v ;   // tabla de coordenadas de vértices (una tupla por vértice, con tres floats)
    std::vector<Tupla3u> f ; // una terna de 3 enteros por cada cara o triángulo
-   unsigned vbovertices;  
-   unsigned vbotriangulos; 
+   unsigned int id_vbo_ver = 0;  
+   unsigned int id_vbo_tri = 0; 
 
    public: 
    // completar: tabla de colores, tabla de normales de vértices
