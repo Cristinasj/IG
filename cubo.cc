@@ -33,14 +33,12 @@ Cubo::Cubo(float lado)
 
 	// Inicializar los arrays de colores para los vértices 
 	// Modo puntos 
-	for (int i = 0; i < 8; i++) 
+	for (int i = 0; i < v.size(); i++) 
 		cpuntos.push_back(Tupla3f(0.99, 0.0, 0.0));
 	// Modo lineas 
-	for (int i = 0; i < 8; i++) 
+	for (int i = 0; i < v.size(); i++) 
 		clineas.push_back(Tupla3f(0.0, 0.99, 0.0));
 	// Modo relleno  
-	for (int i = 0; i < 8; i++) 
+	for (int i = 0; i < v.size(); i++) 
 		crelleno.push_back(Tupla3f(0.0, 0.0, 0.99));
-    glEnableClientState(GL_COLOR_ARRAY); 	
-
 }

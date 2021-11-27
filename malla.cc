@@ -57,6 +57,7 @@ void Malla3D::draw_ModoDiferido()
 void Malla3D::draw(int modo)
 {
    // completar .....(práctica 1)
+   glColorPointer(3, GL_FLOAT, 0, clineas.data()); 
    switch(modo) {
       case 1: 
          draw_ModoInmediato(); 

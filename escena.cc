@@ -106,8 +106,10 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
    switch( toupper(tecla) )
    {
       case 'Q' :
-         if (modoMenu!=NADA)
+         if (modoMenu!=NADA) {
             modoMenu=NADA;
+            std::cout << "Menú reseteado" << std::endl;  
+         }
          else {
             salir=true ;
          }
@@ -115,29 +117,38 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
       case 'O' :
          // ENTRAMOS EN MODO SELECCION DE OBJETO
          modoMenu=SELOBJETO;
+         std::cout << "Modo selección de objeto" << std::endl;  
          break ;
         case 'V' :
          // ENTRAMOS EN MODO SELECCION DE MODO DE VISUALIZACION
          modoMenu=SELVISUALIZACION;
+         std::cout << "Modo selección de modo de visualización" << std::endl;  
          break ;
        case 'D' :
          // ENTRAMOS EN MODO SELECCION DE DIBUJADO
          modoMenu=SELDIBUJADO;
+         std::cout << "Modo selección de dibujado. Pulse 1 o 2" << std::endl;  
          break ;
          // COMPLETAR con los diferentes opciones de teclado
       // DENTRO MODO SELECCIÓN OBJETO 
       case 'C' :
-         if (modoMenu=SELOBJETO) 
+         if (modoMenu=SELOBJETO) {
             objetoActivo=CUBO;  
+            std::cout << "Cubo activado" << std::endl;  
+         }
       break; 
       case 'T' : 
-         if (modoMenu=SELOBJETO) 
+         if (modoMenu=SELOBJETO) {
             objetoActivo=TETRAEDRO;
+            std::cout << "Tetraedro activado" << std::endl;  
+         }
       break;
       // DENTRO DEL MODO DE VISUALIZACIÓN 
       case 'P' : 
-         if (modoMenu=SELVISUALIZACION)
+         if (modoMenu=SELVISUALIZACION) {
             modoVisualizar=PUNTOS; 
+            std::cout << "Modo puntos activado" << std::endl;  
+         }
       break; 
       case 'L' : 
          if (modoMenu=SELVISUALIZACION) {
@@ -146,21 +157,29 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          }
       break; 
       case 'S' : 
-         if (modoMenu=SELVISUALIZACION)
+         if (modoMenu=SELVISUALIZACION) {
             modoVisualizar=SOLIDO; 
+            std::cout << "Caso de uso ver sólido" << std::endl;  
+         }
       break; 
       case 'A' :   
-         if (modoMenu=SELVISUALIZACION)
+         if (modoMenu=SELVISUALIZACION) {
             modoVisualizar=AJEDREZ; 
+            std::cout << "Modo ajedrez activado" << std::endl;  
+         }
       break; 
       // DENTRO DE SELECCIÓN DE MODO DE DIBUJADO   
       case '1' : 
-         if (modoMenu=SELDIBUJADO)
+         if (modoMenu=SELDIBUJADO) {
             modoDibujar=1; 
+            std::cout << "Modo directo" << std::endl;  
+         }
       break; 
       case '2' : 
-         if (modoMenu=SELDIBUJADO)
+         if (modoMenu=SELDIBUJADO) {
             modoDibujar=2; 
+            std::cout << "Modo diferido" << std::endl;  
+         }
       break; 
    }
    return salir;
