@@ -31,14 +31,8 @@ Cubo::Cubo(float lado)
 	 f.push_back(TuplaG3<unsigned>(0, 1, 5));
 	 f.push_back(TuplaG3<unsigned>(3, 2, 7));
 
-	// Inicializar los arrays de colores para los vértices 
-	// Modo puntos 
+	// Inicializar arrays de colores para los vértices 
 	for (int i = 0; i < v.size(); i++) 
-		cpuntos.push_back(Tupla3f(0.99, 0.0, 0.0));
-	// Modo lineas 
-	for (int i = 0; i < v.size(); i++) 
-		clineas.push_back(Tupla3f(0.0, 0.99, 0.0));
-	// Modo relleno  
-	for (int i = 0; i < v.size(); i++) 
-		crelleno.push_back(Tupla3f(0.0, 0.0, 0.99));
+		c.push_back(Tupla3f(0.99, 0.0, 0.0));
+
 }

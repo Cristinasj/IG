@@ -50,12 +50,8 @@ class Malla3D
    unsigned int id_vbo_ver = 0;  
    unsigned int id_vbo_tri = 0; 
 
-   public: 
    // completar: tabla de colores, tabla de normales de vértices
-   // Colores 
-   std::vector<Tupla3f> clineas ;
-   std::vector<Tupla3f> cpuntos ;
-   std::vector<Tupla3f> crelleno ;
+   std::vector<Tupla3f> c ;
    // Normales 
    std::vector<Tupla3f> n ;
 } ;

@@ -21,15 +21,9 @@ Tetraedro::Tetraedro()
 	 f.push_back(TuplaG3<unsigned>(2, 3, 0));
 	 f.push_back(TuplaG3<unsigned>(1, 3, 2));
 
-	// Inicializar los arrays de colores para los vértices 
-	// Modo puntos 
+	// Inicializar array de colores para los vértices 
 	for (int i = 0; i < v.size(); i++) 
-		cpuntos.push_back(Tupla3f(0.99, 0.0, 0.0));
-	// Modo lineas 
-	for (int i = 0; i < v.size(); i++) 
-		clineas.push_back(Tupla3f(0.0, 0.99, 0.0));
-	// Modo relleno  
-	for (int i = 0; i < v.size(); i++) 
-		crelleno.push_back(Tupla3f(0.0, 0.0, 0.99));
+		c.push_back(Tupla3f(0.99, 0.0, 0.0));
+
 }
 
