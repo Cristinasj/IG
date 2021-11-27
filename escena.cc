@@ -69,16 +69,13 @@ void Escena::dibujar()
  
    // Modo de visualizar 
    if (modoVisualizar == PUNTOS) {
-         glPointSize(10); 
-         glColorPointer(3, GL_FLOAT, 0, cubo->cpuntos.data());   
-         glPolygonMode(GL_FRONT, GL_POINT);
+      glPointSize(10); 
+      glPolygonMode(GL_FRONT, GL_POINT);
    } 
    else if (modoVisualizar == LINEAS) {
-      glColorPointer(3, GL_FLOAT, 0, cubo->clineas.data());    
       glPolygonMode(GL_FRONT, GL_LINE);
    } 
    else if (modoVisualizar == SOLIDO) {
-      glColorPointer(3, GL_FLOAT, 0, cubo->crelleno.data());
       glPolygonMode(GL_FRONT, GL_FILL);
    } 
    else if (modoVisualizar == AJEDREZ) {

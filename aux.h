@@ -18,6 +18,7 @@
 #endif
 
 #include <cmath>    // sin, cos, etc....
+#define PI 3.14159265
 #include <cstdlib>  // exit
 #include <ostream> // cout y demás .....
 #include <string>   // std::string
