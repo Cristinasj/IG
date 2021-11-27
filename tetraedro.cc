@@ -16,12 +16,20 @@ Tetraedro::Tetraedro()
    // inicializar la tabla de caras o triángulos:
    // (es importante en cada cara ordenar los vértices en sentido contrario
    //  de las agujas del reloj, cuando esa cara se observa desde el exterior del cubo)
-	 f.push_back(TuplaG3<unsigned>(0, 2, 1));
-	 f.push_back(TuplaG3<unsigned>(0, 1, 3));
-	 f.push_back(TuplaG3<unsigned>(2, 0, 3));
-	 f.push_back(TuplaG3<unsigned>(1, 2, 3));
+	 f.push_back(TuplaG3<unsigned>(0, 1, 2));
+	 f.push_back(TuplaG3<unsigned>(0, 3, 1));
+	 f.push_back(TuplaG3<unsigned>(2, 3, 0));
+	 f.push_back(TuplaG3<unsigned>(1, 3, 2));
 
-	// Inicializar el array de colores para los vértices 
-    
+	// Inicializar los arrays de colores para los vértices 
+	// Modo puntos 
+	for (int i = 0; i < v.size(); i++) 
+		cpuntos.push_back(Tupla3f(0.99, 0.0, 0.0));
+	// Modo lineas 
+	for (int i = 0; i < v.size(); i++) 
+		clineas.push_back(Tupla3f(0.0, 0.99, 0.0));
+	// Modo relleno  
+	for (int i = 0; i < v.size(); i++) 
+		crelleno.push_back(Tupla3f(0.0, 0.0, 0.99));
 }
 
