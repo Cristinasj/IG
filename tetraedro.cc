@@ -23,7 +23,7 @@ Tetraedro::Tetraedro()
 
 	// Inicializar array de colores para los vértices 
 	for (int i = 0; i < v.size(); i++) 
-		c.push_back(Tupla3f(0.99, 0.0, 0.0));
+		c.push_back(Tupla3f(0.0, 0.99, 0.0));
 
 }
 

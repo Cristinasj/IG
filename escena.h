@@ -8,6 +8,7 @@
 #include "esfera.h"
 #include "cilindro.h"
 #include "cono.h"
+#include "objply.h"
 
 typedef enum {NADA, SELOBJETO,SELVISUALIZACION,SELDIBUJADO} menu;
 typedef enum {NINGUNO, CUBO, TETRAEDRO} objetovisible;
@@ -50,7 +51,8 @@ class Escena
    Cilindro * cilindro = nullptr; 
    Cono * cono = nullptr; 
    Esfera * esfera = nullptr; 
-
+   ObjPLY * doge = nullptr; 
+   
    public:
 
     Escena();

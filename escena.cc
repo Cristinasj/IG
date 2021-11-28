@@ -24,7 +24,8 @@ Escena::Escena()
 	tetraedro = new Tetraedro();
    cono = new Cono(); 
    esfera = new Esfera(); 
-   cilindro = new Cilindro(); 
+   cilindro = new Cilindro();
+   doge = new ObjPLY("./plys/big_dodge");  
 
 }
 
@@ -95,25 +96,31 @@ void Escena::dibujar()
    */
 
    glPushMatrix(); 
-      glTranslatef(3, 0, 3); 
+      glTranslatef(300.0, 0, 300.0); 
       cubo->draw(modoDibujar); 
    glPopMatrix(); 
    glPushMatrix(); 
-      glTranslatef(3,0, -3); 
+      glTranslatef(300.0,0, -300.0); 
       tetraedro->draw(modoDibujar); 
    glPopMatrix(); 
    glPushMatrix(); 
-      glTranslatef(-3,0,-4); 
+      glTranslatef(-300.0,0,-400.0); 
       esfera->draw(modoDibujar); 
    glPopMatrix(); 
    glPushMatrix(); 
-      glTranslatef(-3,0,0); 
+      glTranslatef(-300.0,0,0); 
       cilindro->draw(modoDibujar); 
    glPopMatrix(); 
    glPushMatrix(); 
-      glTranslatef(-3,0,4); 
+      glTranslatef(-300.0,0,400.0); 
       cono->draw(modoDibujar); 
    glPopMatrix(); 
+   glPushMatrix(); 
+      glTranslatef(-300.0,0,400.0); 
+      glScalef(10.0,10.0,10.0); 
+      doge->draw(modoDibujar); 
+   glPopMatrix(); 
+
 }
 
 //**************************************************************************
