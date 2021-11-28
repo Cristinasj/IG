@@ -58,7 +58,7 @@ void error( const char *msg_error ) ;
 void leer_vertices(  unsigned num_vertices, vector<Tupla3f> & vertices,
                      ifstream & src  ) ;
 void leer_caras( unsigned num_vertices,
-                 unsigned num_caras, vector<Tupla3i> & caras,
+                 unsigned num_caras, vector<Tupla3u> & caras,
                  ifstream & src  ) ;
 
 //**********************************************************************
@@ -67,7 +67,7 @@ void read
 (
    const std::string &     nombre_archivo_pse, // entrada: nombre de archivo
    std::vector<Tupla3f> &  vertices,           // salida:  vector de coords. de vert.
-   std::vector<Tupla3i> &  caras               // salida:  vector de triángulos (índices)
+   std::vector<Tupla3u> &  caras               // salida:  vector de triángulos (índices)
 )
 {
    unsigned
@@ -158,7 +158,7 @@ void leer_caras
 (
    unsigned          num_vertices,
    unsigned          num_caras,
-   vector<Tupla3i> & caras,
+   vector<Tupla3u> & caras,
    ifstream &        src
 )
 {
@@ -195,7 +195,7 @@ void leer_caras
       }
       src.getline(buffer,tam_buffer); // ignore more properties, so far ...
 
-      caras[ifa] = Tupla3i( int(iv[0]), int(iv[1]), int(iv[2]) );
+      caras[ifa] = Tupla3u( int(iv[0]), int(iv[1]), int(iv[2]) );
    }
    //cout << "  fin de la lista de caras." << endl ;
 }

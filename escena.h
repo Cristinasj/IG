@@ -5,6 +5,9 @@
 #include "malla.h"
 #include "cubo.h"
 #include "tetraedro.h"
+#include "esfera.h"
+#include "cilindro.h"
+#include "cono.h"
 
 typedef enum {NADA, SELOBJETO,SELVISUALIZACION,SELDIBUJADO} menu;
 typedef enum {NINGUNO, CUBO, TETRAEDRO} objetovisible;
@@ -44,7 +47,9 @@ class Escena
    
    Cubo * cubo = nullptr ; // es importante inicializarlo a 'nullptr'
    Tetraedro * tetraedro= nullptr ; // es importante inicializarlo a 'nullptr'
-
+   Cilindro * cilindro = nullptr; 
+   Cono * cono = nullptr; 
+   Esfera * esfera = nullptr; 
 
    public:
 

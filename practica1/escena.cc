@@ -79,14 +79,17 @@ void Escena::dibujar()
       glPolygonMode(GL_FRONT, GL_FILL);
    } 
    else if (modoVisualizar == AJEDREZ) {
-      std::cout << "TODO AJEDREZ" << std::endl; 
+      std::cout << "TODO AJEDREZ" << std::endl; abort();  
    }
 
+   // Inútil a partir de la práctica 2 
+   /*
    // Figura a dibujar 
    switch (objetoActivo) {
 		case CUBO: cubo->draw(modoDibujar); break;
 		case TETRAEDRO: tetraedro->draw(modoDibujar); break;
 	}
+   */ 
 
 }
 
