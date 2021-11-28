@@ -22,6 +22,9 @@ Escena::Escena()
 	// Crear los objetos de la escena
    cubo = new Cubo(100.0);
 	tetraedro = new Tetraedro();
+   cono = new Cono(); 
+   esfera = new Esfera(); 
+   cilindro = new Cilindro(); 
 
 }
 
@@ -83,11 +86,34 @@ void Escena::dibujar()
    }
 
    // Figura a dibujar 
+   // Inutil a partir de la P2  
+   /*
    switch (objetoActivo) {
 		case CUBO: cubo->draw(modoDibujar); break;
 		case TETRAEDRO: tetraedro->draw(modoDibujar); break;
 	}
+   */
 
+   glPushMatrix(); 
+      glTranslatef(3, 0, 3); 
+      cubo->draw(modoDibujar); 
+   glPopMatrix(); 
+   glPushMatrix(); 
+      glTranslatef(3,0, -3); 
+      tetraedro->draw(modoDibujar); 
+   glPopMatrix(); 
+   glPushMatrix(); 
+      glTranslatef(-3,0,-4); 
+      esfera->draw(modoDibujar); 
+   glPopMatrix(); 
+   glPushMatrix(); 
+      glTranslatef(-3,0,0); 
+      cilindro->draw(modoDibujar); 
+   glPopMatrix(); 
+   glPushMatrix(); 
+      glTranslatef(-3,0,4); 
+      cono->draw(modoDibujar); 
+   glPopMatrix(); 
 }
 
 //**************************************************************************

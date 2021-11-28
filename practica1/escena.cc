@@ -82,14 +82,11 @@ void Escena::dibujar()
       std::cout << "TODO AJEDREZ" << std::endl; abort();  
    }
 
-   // Inútil a partir de la práctica 2 
-   /*
    // Figura a dibujar 
    switch (objetoActivo) {
 		case CUBO: cubo->draw(modoDibujar); break;
 		case TETRAEDRO: tetraedro->draw(modoDibujar); break;
 	}
-   */ 
 
 }
 

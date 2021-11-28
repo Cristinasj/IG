@@ -29,6 +29,7 @@ ObjRevolucion::ObjRevolucion(const std::string & archivo, int num_instancias, bo
       if (v[i](2) == 0) 
          vectorEje.push_back(v[i]); 
    }
+         // Generar la rotación 
    for (int i = 0; i < num_instancias; i++) {
       std::cout << "TODO generar revolución" << std::endl; abort();  
    } 
