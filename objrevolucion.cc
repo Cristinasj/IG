@@ -18,6 +18,17 @@ ObjRevolucion::ObjRevolucion() {}
 
 ObjRevolucion::ObjRevolucion(const std::string & archivo, int num_instancias, bool tapa_sup, bool tapa_inf) {
    // completar ......(práctica 2)
+   // Lectura de perfil 
+   ply::read(archivo, v, c);
+   // Generación revolución 
+   for (int i = 0; i < num_instancias; i++) {
+      cout << "TODO generar revolución" << endl; abort();  
+   } 
+   // Creación tapas 
+   // Superior 
+
+   // Inferior 
+
 }
 
 // *****************************************************************************
