@@ -36,8 +36,8 @@ ObjRevolucion::ObjRevolucion(const std::string & archivo, int num_instancias, bo
    int numVertices = v.size();   
    for (int i = 0; i < num_instancias; i++) {
       for (int j = 0; j < numVertices; j++) {
-         //Tupla3f vertice = Tupla3f();
-         std::cout << "todo";  
+         float angulo = j; 
+         Tupla3f vertice = Tupla3f(v[j](0)*sin(angulo), v[j](1), v[j](0)*cos(angulo));  
       }   
    } 
 

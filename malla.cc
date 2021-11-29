@@ -62,7 +62,7 @@ void Malla3D::draw(int modo)
       case 1: 
          draw_ModoInmediato(); 
       break; 
-      case 2TuplaG3<float>(:
+      case 2:
          draw_ModoDiferido();   
       break; 
    }
