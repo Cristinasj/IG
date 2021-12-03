@@ -97,33 +97,33 @@ void Escena::dibujar()
    */
 
    glPushMatrix(); 
-      glTranslatef(300.0, 0, 300.0); 
+      glTranslatef(200.0, 0, 200.0); 
       cubo->draw(modoDibujar); 
    glPopMatrix(); 
    glPushMatrix(); 
-      glTranslatef(300.0,0, -300.0); 
+      glTranslatef(200.0,0, -200.0); 
       tetraedro->draw(modoDibujar); 
    glPopMatrix(); 
    glPushMatrix(); 
-      glTranslatef(-300.0,0,-400.0); 
+      glTranslatef(-200.0,0,-200.0); 
       esfera->draw(modoDibujar); 
    glPopMatrix(); 
    glPushMatrix(); 
-      glTranslatef(-300.0,0,0); 
+      glTranslatef(-200.0,0,0); 
       cilindro->draw(modoDibujar); 
    glPopMatrix(); 
    glPushMatrix(); 
-      glTranslatef(-300.0,0,400.0); 
+      glTranslatef(-200.0,0,200.0); 
       cono->draw(modoDibujar); 
    glPopMatrix(); 
    glPushMatrix(); 
-      glTranslatef(-300.0,0,400.0); 
+      glTranslatef(-200.0,0,200.0); 
       glScalef(10.0,10.0,10.0); 
       doge->draw(modoDibujar); 
    glPopMatrix();
    glPushMatrix(); 
-      glTranslatef(-300.0,0,400.0); 
-      glScalef(100.0,100.0,100.0); 
+      glTranslatef(-200.0,0,-200.0); 
+      glScalef(10.0,10.0,10.0); 
       lata->draw(modoDibujar); 
    glPopMatrix(); 
    
