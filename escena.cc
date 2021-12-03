@@ -26,7 +26,7 @@ Escena::Escena()
    esfera = new Esfera(); 
    cilindro = new Cilindro();
    doge = new ObjPLY("./plys/big_dodge");
-   // lata = new ObjRevolucion("./ply/lata-pinf", 20);   
+   lata = new ObjRevolucion("./plys/lata-pinf", 20);   
 
 }
 
@@ -121,13 +121,12 @@ void Escena::dibujar()
       glScalef(10.0,10.0,10.0); 
       doge->draw(modoDibujar); 
    glPopMatrix();
-   /*
    glPushMatrix(); 
       glTranslatef(-300.0,0,400.0); 
-      glScalef(10.0,10.0,10.0); 
+      glScalef(100.0,100.0,100.0); 
       lata->draw(modoDibujar); 
    glPopMatrix(); 
-   */ 
+   
 
 }
 
