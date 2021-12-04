@@ -32,9 +32,11 @@ class Malla3D
 
    // dibuja el objeto en modo inmediato
    void draw_ModoInmediato();
+   void draw_ModoInmediato_Ajedrez(); 
 
    // dibuja el objeto en modo diferido (usando VBOs)
    void draw_ModoDiferido();
+   void draw_ModoDiferido_Ajedrez(); 
 
    // función que redibuja el objeto
    // está función llama a 'draw_ModoInmediato' (modo inmediato)
@@ -50,6 +52,10 @@ class Malla3D
    unsigned int id_vbo_ver = 0;  
    unsigned int id_vbo_tri = 0; 
    unsigned int id_vbo_col = 0; 
+   unsigned int id_carasPares; 
+   unsigned int id_carasImpares;  
+   unsigned int id_coloresPares; 
+   unsigned int id_coloresImpares; 
 
    // completar: tabla de colores, tabla de normales de vértices
    std::vector<Tupla3f> c ;
