@@ -11,9 +11,6 @@
 #include "objply.h"
 #include "objrevolucion.h"
 
-typedef enum {NADA, SELOBJETO,SELVISUALIZACION,SELDIBUJADO} menu;
-typedef enum {NINGUNO, CUBO, TETRAEDRO} objetovisible;
-typedef enum {PUNTOS, LINEAS, SOLIDO, AJEDREZ} modovisualizacion; 
 
 class Escena
 {
@@ -43,9 +40,9 @@ class Escena
    menu modoMenu=NADA;
    // Objetos de la escena
    Ejes ejes;
-	objetovisible objetoActivo = CUBO;
+	// objetovisible objetoActivo = CUBO;
    modovisualizacion modoVisualizar = SOLIDO;
-   int modoDibujar = 1; // 1 clásico 2 diferido  
+   int modoDibujar = 2; // 1 clásico 2 diferido  
    
    Cubo * cubo = nullptr ; // es importante inicializarlo a 'nullptr'
    Tetraedro * tetraedro= nullptr ; // es importante inicializarlo a 'nullptr'
@@ -53,11 +50,12 @@ class Escena
    Cono * cono = nullptr; 
    Esfera * esfera = nullptr; 
    ObjPLY * doge = nullptr;
+   ObjPLY * ant = nullptr; 
    ObjRevolucion *  lata = nullptr; 
    
    public:
 
-    Escena();
+   Escena();
 	void inicializar( int UI_window_width, int UI_window_height );
 	void redimensionar( int newWidth, int newHeight ) ;
 

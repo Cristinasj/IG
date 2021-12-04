@@ -39,7 +39,7 @@ class Malla3D
    // función que redibuja el objeto
    // está función llama a 'draw_ModoInmediato' (modo inmediato)
    // o bien a 'draw_ModoDiferido' (modo diferido, VBOs)
-   void draw(int modo) ;
+   void draw(int modo, modovisualizacion modoVisualizar) ;
 
    protected:
 
@@ -49,6 +49,7 @@ class Malla3D
    std::vector<Tupla3u> f ; // una terna de 3 enteros por cada cara o triángulo
    unsigned int id_vbo_ver = 0;  
    unsigned int id_vbo_tri = 0; 
+   unsigned int id_vbo_col = 0; 
 
    // completar: tabla de colores, tabla de normales de vértices
    std::vector<Tupla3f> c ;

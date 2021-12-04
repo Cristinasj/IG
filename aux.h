@@ -10,8 +10,13 @@
 //
 // #############################################################################
 
+
 #ifndef AUX_H_INCLUDED
 #define AUX_H_INCLUDED
+
+typedef enum {NADA, SELOBJETO,SELVISUALIZACION,SELDIBUJADO} menu;
+typedef enum {NINGUNO, CUBO, TETRAEDRO} objetovisible;
+typedef enum {PUNTOS, LINEAS, SOLIDO, AJEDREZ} modovisualizacion; 
 
 #ifdef _WIN32
 #  include <windows.h>

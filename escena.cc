@@ -27,6 +27,7 @@ Escena::Escena()
    cilindro = new Cilindro();
    doge = new ObjPLY("./plys/big_dodge");
    lata = new ObjRevolucion("./plys/lata-pinf", 20);   
+   ant = new ObjPLY("./plys/ant"); 
 
 }
 
@@ -41,7 +42,7 @@ void Escena::inicializar( int UI_window_width, int UI_window_height )
 	glClearColor( 1.0, 1.0, 1.0, 1.0 );// se indica cual sera el color para limpiar la ventana	(r,v,a,al)
 
 	glEnable( GL_DEPTH_TEST );	// se habilita el z-bufer
-   glEnable( GL_CULL_FACE );
+   //glEnable( GL_CULL_FACE );
    glEnableClientState(GL_COLOR_ARRAY);
 	Width  = UI_window_width/10;
 	Height = UI_window_height/10;
@@ -88,7 +89,7 @@ void Escena::dibujar()
       glPolygonMode(GL_FRONT, GL_FILL);
    } 
    else if (modoVisualizar == AJEDREZ) {
-      std::cout << "TODO AJEDREZ" << std::endl; 
+      glPolygonMode(GL_FRONT, GL_FILL);
    }
 
    // Figura a dibujar 
@@ -102,33 +103,38 @@ void Escena::dibujar()
 
    glPushMatrix(); 
       glTranslatef(200.0, 0, 200.0); 
-      cubo->draw(modoDibujar); 
+      cubo->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
       glTranslatef(200.0,0, -200.0); 
-      tetraedro->draw(modoDibujar); 
+      tetraedro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
       glTranslatef(-200.0,0,-200.0); 
-      esfera->draw(modoDibujar); 
+      esfera->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
       glTranslatef(-200.0,0,0); 
-      cilindro->draw(modoDibujar); 
+      cilindro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
       glTranslatef(-200.0,0,200.0); 
-      cono->draw(modoDibujar); 
+      cono->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
       glTranslatef(-200.0,0,200.0); 
       glScalef(10.0,10.0,10.0); 
-      doge->draw(modoDibujar); 
+      doge->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
    glPushMatrix(); 
       glTranslatef(-200.0,0,-200.0); 
       glScalef(10.0,10.0,10.0); 
-      lata->draw(modoDibujar); 
+      lata->draw(modoDibujar, modoVisualizar); 
+   glPopMatrix(); 
+   glPushMatrix(); 
+      glTranslatef(0,0,0); 
+      glScalef(5.0,5.0,5.0); 
+      ant->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
 }
 
@@ -173,6 +179,7 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
           << "Tecla P: Modo puntos" << std::endl 
           << "Tecla L: Modo lineas" << std::endl 
           << "Tecla S: Modo solido" << std::endl
+          << "Tecla A: Modo ajedrez" << std::endl
           << "Tecla Q: volver al menu principal" << std::endl;
 
          break ;
