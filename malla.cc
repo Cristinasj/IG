@@ -112,18 +112,20 @@ void Malla3D::draw_ModoDiferido_Ajedrez() {
    std::vector<Tupla3f> coloresImpares ;  
    for (int i = 0; i < c.size(); i++)
       coloresImpares.push_back(Tupla3f(0,0.99,0.99)); 
+
+   // Creación id vbo en caso de que no existan 
    if (id_vbo_ver == 0)
       id_vbo_ver = CrearVBO(GL_ARRAY_BUFFER, v.size()*3*sizeof(float), v.data()); 
    if (id_carasPares == 0)
-      id_carasPares = CrearVBO(GL_ELEMENT_ARRAY_BUFFER, f.size()*3*sizeof(int), carasPares.data()); 
+      id_carasPares = CrearVBO(GL_ELEMENT_ARRAY_BUFFER, carasPares.size()*3*sizeof(int), carasPares.data()); 
    if (id_carasImpares == 0)
-      id_carasImpares = CrearVBO(GL_ELEMENT_ARRAY_BUFFER, f.size()*3*sizeof(int), carasImpares.data()); 
+      id_carasImpares = CrearVBO(GL_ELEMENT_ARRAY_BUFFER, carasImpares.size()*3*sizeof(int), carasImpares.data()); 
    if (id_coloresPares == 0)
       id_coloresPares = CrearVBO(GL_ARRAY_BUFFER, v.size()*3*sizeof(float), coloresPares.data()); 
    if (id_coloresImpares == 0)
       id_coloresImpares = CrearVBO(GL_ARRAY_BUFFER, v.size()*3*sizeof(float), coloresImpares.data()); 
 
-   // Activar VBO de vértices
+   // Dibujado en modo diferido 
    glBindBuffer(GL_ARRAY_BUFFER, id_vbo_ver);
    glVertexPointer(3, GL_FLOAT, 0, 0); 
    glBindBuffer(GL_ARRAY_BUFFER, 0); 
@@ -134,13 +136,13 @@ void Malla3D::draw_ModoDiferido_Ajedrez() {
    glBindBuffer(GL_ARRAY_BUFFER, 0); 
    glEnableClientState(GL_COLOR_ARRAY); 
    
+   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_carasPares); 
+   glDrawElements(GL_TRIANGLES, 3*carasPares.size(), GL_UNSIGNED_INT, 0); 
+   
    glBindBuffer(GL_ARRAY_BUFFER, id_coloresImpares);
    glColorPointer(3, GL_FLOAT, 0, 0); 
    glBindBuffer(GL_ARRAY_BUFFER, 0); 
-   glEnableClientState(GL_COLOR_ARRAY); 
 
-   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_carasPares); 
-   glDrawElements(GL_TRIANGLES, 3*carasPares.size(), GL_UNSIGNED_INT, 0); 
    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_carasImpares); 
    glDrawElements(GL_TRIANGLES, 3*carasImpares.size(), GL_UNSIGNED_INT, 0); 
    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); 

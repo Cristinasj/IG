@@ -28,6 +28,7 @@ Escena::Escena()
    doge = new ObjPLY("./plys/big_dodge");
    lata = new ObjRevolucion("./plys/lata-pinf", 20);   
    ant = new ObjPLY("./plys/ant"); 
+   ant2 = new ObjPLY("./plys/big_dodge");
 
 }
 
@@ -102,6 +103,11 @@ void Escena::dibujar()
    */
 
    glPushMatrix(); 
+      glTranslatef(-200.0,-200.0,200.0); 
+      glScalef(10.0,10.0,10.0); 
+      ant2->draw(modoDibujar, modoVisualizar); 
+   glPopMatrix();
+   glPushMatrix(); 
       glTranslatef(200.0, 0, 200.0); 
       cubo->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
@@ -122,6 +128,10 @@ void Escena::dibujar()
       cono->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
+      glScalef(5.0,5.0,5.0); 
+      ant->draw(modoDibujar, modoVisualizar); 
+   glPopMatrix();
+   glPushMatrix(); 
       glTranslatef(-200.0,0,200.0); 
       glScalef(10.0,10.0,10.0); 
       doge->draw(modoDibujar, modoVisualizar); 
@@ -131,11 +141,7 @@ void Escena::dibujar()
       glScalef(10.0,10.0,10.0); 
       lata->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-   glPushMatrix(); 
-      glTranslatef(0,0,0); 
-      glScalef(5.0,5.0,5.0); 
-      ant->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix(); 
+   
 }
 
 //**************************************************************************

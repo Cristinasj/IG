@@ -41,7 +41,7 @@ class Escena
    // Objetos de la escena
    Ejes ejes;
 	// objetovisible objetoActivo = CUBO;
-   modovisualizacion modoVisualizar = SOLIDO;
+   modovisualizacion modoVisualizar = AJEDREZ;
    int modoDibujar = 2; // 1 clásico 2 diferido  
    
    Cubo * cubo = nullptr ; // es importante inicializarlo a 'nullptr'
@@ -51,6 +51,7 @@ class Escena
    Esfera * esfera = nullptr; 
    ObjPLY * doge = nullptr;
    ObjPLY * ant = nullptr; 
+   ObjPLY * ant2 = nullptr; 
    ObjRevolucion *  lata = nullptr; 
    
    public:
