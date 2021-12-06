@@ -52,10 +52,10 @@ class Malla3D
    unsigned int id_vbo_ver = 0;  
    unsigned int id_vbo_tri = 0; 
    unsigned int id_vbo_col = 0; 
-   unsigned int id_carasPares; 
-   unsigned int id_carasImpares;  
-   unsigned int id_coloresPares; 
-   unsigned int id_coloresImpares; 
+   unsigned int id_carasPares = 0; 
+   unsigned int id_carasImpares = 0;  
+   unsigned int id_coloresPares = 0; 
+   unsigned int id_coloresImpares = 0; 
 
    // completar: tabla de colores, tabla de normales de vértices
    std::vector<Tupla3f> c ;

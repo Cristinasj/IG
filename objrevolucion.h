@@ -30,6 +30,7 @@ public:
     ObjRevolucion(const std::string & archivo, int num_instancias, bool tapa_sup=true, bool tapa_inf=true) ;
     ObjRevolucion(std::vector<Tupla3f> archivo, int num_instancias, bool tapa_sup=true, bool tapa_inf=true) ;
     void crearMalla(std::vector<Tupla3f> perfil_original, int num_instancias);
+    void init(std::vector<Tupla3f> perfil, int num_instancias, bool tapa_sup, bool tapa_inf) ;
 private:
 
 } ;

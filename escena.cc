@@ -29,6 +29,7 @@ Escena::Escena()
    lata = new ObjRevolucion("./plys/lata-pinf", 20);   
    ant = new ObjPLY("./plys/ant"); 
    ant2 = new ObjPLY("./plys/big_dodge");
+   cilindro = new Cilindro(); 
 
 }
 
