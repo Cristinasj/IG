@@ -128,6 +128,7 @@ void Escena::dibujar()
       cono->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
+      glTranslatef(-200.0,0,-200.0); 
       glScalef(5.0,5.0,5.0); 
       ant->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
@@ -137,7 +138,6 @@ void Escena::dibujar()
       doge->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
    glPushMatrix(); 
-      glTranslatef(-200.0,0,-200.0); 
       glScalef(10.0,10.0,10.0); 
       lata->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
