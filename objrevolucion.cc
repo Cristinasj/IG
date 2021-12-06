@@ -20,7 +20,6 @@ ObjRevolucion::ObjRevolucion(const std::string & archivo, int num_instancias, bo
    // completar ......(práctica 2)
    std::vector<Tupla3f> vectoresLeidos; 
    ply::read_vertices(archivo, vectoresLeidos);
-
    init (vectoresLeidos, num_instancias, tapa_sup, tapa_inf);  
    
 }
