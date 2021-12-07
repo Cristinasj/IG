@@ -102,7 +102,7 @@ void Escena::dibujar()
 	}
    */
 
-   glPushMatrix(); 
+   /*glPushMatrix(); 
       glTranslatef(-200.0,-200.0,200.0); 
       glScalef(10.0,10.0,10.0); 
       ant2->draw(modoDibujar, modoVisualizar); 
@@ -136,9 +136,9 @@ void Escena::dibujar()
       glTranslatef(-200.0,0,200.0); 
       glScalef(10.0,10.0,10.0); 
       doge->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix();
+   glPopMatrix();*/
    glPushMatrix(); 
-      glScalef(10.0,10.0,10.0); 
+      glScalef(100.0,100.0,100.0); 
       lata->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    
