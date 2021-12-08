@@ -32,7 +32,7 @@ void Malla3D::draw_ModoInmediato_Ajedrez() {
    std::vector<Tupla3u> carasPares; 
    std::vector<Tupla3u> carasImpares ;
    int tam = f.size(); 
-   for (int i = 0; i < tam-1; i+=2) {
+   for (int i = 0; i < tam; i+=2) {
       carasPares.push_back(f[i]);
       carasImpares.push_back(f[i+1]);  
    } 

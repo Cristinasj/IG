@@ -26,7 +26,7 @@ Escena::Escena()
    esfera = new Esfera(); 
    cilindro = new Cilindro();
    doge = new ObjPLY("./plys/big_dodge");
-   lata = new ObjRevolucion("./plys/lata-pinf", 20);   
+   lata = new ObjRevolucion("./plys/lata-pcue", 20);   
    ant = new ObjPLY("./plys/ant"); 
    ant2 = new ObjPLY("./plys/big_dodge");
 
@@ -43,7 +43,7 @@ void Escena::inicializar( int UI_window_width, int UI_window_height )
 	glClearColor( 1.0, 1.0, 1.0, 1.0 );// se indica cual sera el color para limpiar la ventana	(r,v,a,al)
 
 	glEnable( GL_DEPTH_TEST );	// se habilita el z-bufer
-   //glEnable( GL_CULL_FACE );
+   glEnable( GL_CULL_FACE );
    glEnableClientState(GL_COLOR_ARRAY);
 	Width  = UI_window_width/10;
 	Height = UI_window_height/10;
@@ -80,7 +80,7 @@ void Escena::dibujar()
  
    // Modo de visualizar 
    if (modoVisualizar == PUNTOS) {
-      glPointSize(10); 
+      glPointSize(1); 
       glPolygonMode(GL_FRONT, GL_POINT);
    } 
    else if (modoVisualizar == LINEAS) {
@@ -114,19 +114,23 @@ void Escena::dibujar()
    glPushMatrix(); 
       glTranslatef(200.0,0, -200.0); 
       tetraedro->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix();*/ 
+   glPopMatrix(); 
+   */
    glPushMatrix(); 
-      glTranslatef(-200.0,0,-200.0); 
+      glScalef(30.0,30.0,30.0); 
+      // glTranslatef(-200.0,0,-200.0); 
       esfera->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
+    /*
    glPushMatrix(); 
-      glTranslatef(-200.0,0,0); 
+      glScalef(30.0,30.0,30.0); 
       cilindro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
       glTranslatef(-200.0,0,200.0); 
+      glScalef(30.0,30.0,30.0); 
       cono->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix(); 
+   glPopMatrix();
    glPushMatrix(); 
       glTranslatef(-200.0,0,-200.0); 
       glScalef(5.0,5.0,5.0); 
@@ -139,8 +143,10 @@ void Escena::dibujar()
    glPopMatrix();
    glPushMatrix(); 
       glScalef(100.0,100.0,100.0); 
+      glTranslatef(-200.0,0,0); 
       lata->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
+    */ 
    
 }
 

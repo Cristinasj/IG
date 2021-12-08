@@ -9,7 +9,7 @@ private:
     float radio; 
 
 public: 
-    Cilindro(int num_vert_perfil = 2, int num_instancias_perfil = 20, float h = 1.0, float r = 1.0); 
+    Cilindro(int num_vert_perfil = 2, int num_instancias_perfil = 20, float h = 3.0, float r = 1.0); 
 
 }; 
 
