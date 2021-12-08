@@ -93,12 +93,7 @@ void Malla3D::draw_ModoDiferido() {
 }
 
 void Malla3D::draw_ModoDiferido_Ajedrez() {
-      std::vector<Tupla3u> carasPares; 
-      std::vector<Tupla3u> carasImpares ;
-      std::vector<Tupla3f> coloresPares ; 
-      std::vector<Tupla3f> coloresImpares ;  
-
-   // Creación id vbo en caso de que no existan 
+         // Creación id vbo en caso de que no existan 
    if (id_vbo_ver == 0)
       id_vbo_ver = CrearVBO(GL_ARRAY_BUFFER, v.size()*3*sizeof(float), v.data()); 
    // Reparto de caras en dos vectores 

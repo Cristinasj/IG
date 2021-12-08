@@ -47,8 +47,18 @@ class Malla3D
 
    void calcular_normales() ; // calcula tabla de normales de vértices (práctica 3)
 
-   std::vector<Tupla3f> v ;   // tabla de coordenadas de vértices (una tupla por vértice, con tres floats)
-   std::vector<Tupla3u> f ; // una terna de 3 enteros por cada cara o triángulo
+   std::vector<Tupla3f> v ;   // Vértices 
+   std::vector<Tupla3u> f ; // Caras 
+   std::vector<Tupla3f> c ; // Colores 
+   std::vector<Tupla3f> n ; // Normales 
+
+   // Atributos para ajedrez modo diferido 
+   std::vector<Tupla3u> carasPares; 
+   std::vector<Tupla3u> carasImpares ;
+   std::vector<Tupla3f> coloresPares ; 
+   std::vector<Tupla3f> coloresImpares ;  
+
+   // VBO 
    unsigned int id_vbo_ver = 0;  
    unsigned int id_vbo_tri = 0; 
    unsigned int id_vbo_col = 0; 
@@ -57,11 +67,6 @@ class Malla3D
    unsigned int id_coloresPares = 0; 
    unsigned int id_coloresImpares = 0; 
 
-   // completar: tabla de colores, tabla de normales de vértices
-   std::vector<Tupla3f> c ;
-   // Normales 
-   std::vector<Tupla3f> n ;
 } ;
-
 
 #endif
