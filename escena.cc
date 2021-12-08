@@ -114,7 +114,7 @@ void Escena::dibujar()
    glPushMatrix(); 
       glTranslatef(200.0,0, -200.0); 
       tetraedro->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix(); 
+   glPopMatrix();*/ 
    glPushMatrix(); 
       glTranslatef(-200.0,0,-200.0); 
       esfera->draw(modoDibujar, modoVisualizar); 
@@ -136,7 +136,7 @@ void Escena::dibujar()
       glTranslatef(-200.0,0,200.0); 
       glScalef(10.0,10.0,10.0); 
       doge->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix();*/
+   glPopMatrix();
    glPushMatrix(); 
       glScalef(100.0,100.0,100.0); 
       lata->draw(modoDibujar, modoVisualizar); 

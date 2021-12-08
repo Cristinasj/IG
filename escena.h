@@ -42,7 +42,7 @@ class Escena
    Ejes ejes;
 	// objetovisible objetoActivo = CUBO;
    modovisualizacion modoVisualizar = AJEDREZ;
-   int modoDibujar = 2; // 1 clásico 2 diferido  
+   int modoDibujar = 1; // 1 clásico 2 diferido  
    
    Cubo * cubo = nullptr ; // es importante inicializarlo a 'nullptr'
    Tetraedro * tetraedro= nullptr ; // es importante inicializarlo a 'nullptr'

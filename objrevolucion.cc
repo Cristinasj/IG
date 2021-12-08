@@ -63,11 +63,11 @@ void ObjRevolucion::crearMalla(std::vector<Tupla3f> perfil_original, int num_ins
    // 1. Creación de los vértices 
    v = perfil_original; 
    int numVertices = perfil_original.size();   
-   for (int i = 1; i < num_instancias; i++) {
+   for (int i = 1; i <= num_instancias; i++) {
       // Calculo del ángulo 
       float angulo = i*2*PI/num_instancias; 
-   for (int j = 0; j < numVertices; j++) 
-      v.push_back(Tupla3f(v[j](0)*sin(angulo), v[j](1), v[j](0)*cos(angulo)));
+      for (int j = 0; j < numVertices; j++) 
+         v.push_back(Tupla3f(v[j](0)*sin(angulo), v[j](1), v[j](0)*cos(angulo)));
    }
 
    // 2.  Creación caras 

@@ -32,7 +32,7 @@ void Malla3D::draw_ModoInmediato_Ajedrez() {
    std::vector<Tupla3u> carasPares; 
    std::vector<Tupla3u> carasImpares ;
    int tam = f.size(); 
-   for (int i = 0; i < tam; i+=2) {
+   for (int i = 0; i < tam-1; i+=2) {
       carasPares.push_back(f[i]);
       carasImpares.push_back(f[i+1]);  
    } 
@@ -40,12 +40,11 @@ void Malla3D::draw_ModoInmediato_Ajedrez() {
       carasPares.push_back(f[tam -1]); 
 
    // Creación de dos vértices de colores 
-   int cantidadColores = c.size(); 
    std::vector<Tupla3f> coloresPares ; 
-   for (int i = 0; i < c.size(); i++) 
+   for (int i = 0; i < v.size(); i++) 
       coloresPares.push_back(Tupla3f(0.99,0,0)); 
    std::vector<Tupla3f> coloresImpares ;  
-   for (int i = 0; i < c.size(); i++)
+   for (int i = 0; i < v.size(); i++)
       coloresImpares.push_back(Tupla3f(0,0.99,0.99)); 
    
    // Dibujado de caras pares 
