@@ -19,9 +19,9 @@ Escena::Escena()
 
     ejes.changeAxisSize( 5000 );
 
-	// Crear los objetos de la escena
+   // Crear los objetos de la escena
    cubo = new Cubo(100.0);
-	tetraedro = new Tetraedro();
+   tetraedro = new Tetraedro();
    cono = new Cono(); 
    esfera = new Esfera(); 
    cilindro = new Cilindro();
@@ -29,7 +29,7 @@ Escena::Escena()
    lata = new ObjRevolucion("./plys/lata-pcue", 20);   
    ant = new ObjPLY("./plys/ant"); 
    ant2 = new ObjPLY("./plys/big_dodge");
-
+   peon = new ObjRevolucion("./plys/peon", 20);  
 }
 
 //**************************************************************************
@@ -79,6 +79,7 @@ void Escena::dibujar()
     // tetraedro.draw()
  
    // Modo de visualizar 
+   /*
    if (modoVisualizar == PUNTOS) {
       glPointSize(1); 
       glPolygonMode(GL_FRONT, GL_POINT);
@@ -100,38 +101,40 @@ void Escena::dibujar()
 		case CUBO: cubo->draw(modoDibujar); break;
 		case TETRAEDRO: tetraedro->draw(modoDibujar); break;
 	}
-   */
+   
 
-   /*glPushMatrix(); 
+   glPushMatrix(); 
       glTranslatef(-200.0,-200.0,200.0); 
       glScalef(10.0,10.0,10.0); 
       ant2->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
+   */
    glPushMatrix(); 
       glTranslatef(200.0, 0, 200.0); 
-      cubo->draw(modoDibujar, modoVisualizar); 
+      peon->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-   glPushMatrix(); 
+   /*glPushMatrix(); 
       glTranslatef(200.0,0, -200.0); 
       tetraedro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    */
-   glPushMatrix(); 
-      glScalef(30.0,30.0,30.0); 
-      // glTranslatef(-200.0,0,-200.0); 
+  glPushMatrix(); 
+      glScalef(50.0,50.0,50.0); 
+       glTranslatef(-10.0,0,10.0); 
       esfera->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-    /*
+   /*
    glPushMatrix(); 
-      glScalef(30.0,30.0,30.0); 
+      glScalef(50.0,50.0,50.0); 
+      glTranslatef(10.0,0,-10.0); 
       cilindro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
+   */
    glPushMatrix(); 
-      glTranslatef(-200.0,0,200.0); 
-      glScalef(30.0,30.0,30.0); 
+      glScalef(10.0,10.0,10.0); 
       cono->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
-   glPushMatrix(); 
+/*glPushMatrix(); 
       glTranslatef(-200.0,0,-200.0); 
       glScalef(5.0,5.0,5.0); 
       ant->draw(modoDibujar, modoVisualizar); 
@@ -143,7 +146,7 @@ void Escena::dibujar()
    glPopMatrix();
    glPushMatrix(); 
       glScalef(100.0,100.0,100.0); 
-      glTranslatef(-200.0,0,0); 
+      // glTranslatef(-200.0,0,0); 
       lata->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
     */ 

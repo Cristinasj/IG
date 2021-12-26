@@ -1,6 +1,7 @@
 #include "aux.h"
 #include "objrevolucion.h"
 #include "ply_reader.h"
+#include <bits/stdc++.h>
 
 
 
@@ -32,6 +33,11 @@ ObjRevolucion::ObjRevolucion(std::vector<Tupla3f> archivo, int num_instancias, b
 }
 
 void ObjRevolucion::init(std::vector<Tupla3f> perfil, int num_instancias, bool tapa_sup, bool tapa_inf) {
+   // Creación correcta de la topología 
+   if (perfil[0](1) < perfil[perfil.size()-1](1)) {
+      reverse(perfil.begin(), perfil.end()); 
+   }
+
    // Búsqueda de los polos situados en el eje y 
    std::vector<Tupla3f> polos; 
    std::vector<Tupla3f> sinPolos; 
@@ -49,9 +55,19 @@ void ObjRevolucion::init(std::vector<Tupla3f> perfil, int num_instancias, bool t
    // Creación malla sin tapas
    crearMalla(sinPolos,num_instancias);
 
+   // Adición vértices tapas 
+   //if (polos.size() >0){
+     // v.push_back(polos[0]); 
+     // v.push_back(polos[1]); 
+//   }
+
   // Creación tapas 
       // Tapa superior 
-
+   if (tapa_sup) {
+      for (int i = 0; i < num_instancias-1; i++) 
+         f.push_back(TuplaG3<unsigned int>(v.size()-2, i, i+1));          
+   }
+      
       // Tapa inferior 
 
    // Adición de colores 
@@ -69,7 +85,6 @@ void ObjRevolucion::crearMalla(std::vector<Tupla3f> perfil_original, int num_ins
       for (int j = 0; j < numVertices; j++) 
          v.push_back(Tupla3f(v[j](0)*sin(angulo), v[j](1), v[j](0)*cos(angulo)));
    }
-
    // 2.  Creación caras 
    for (int i = 0; i < num_instancias; i++) {
       for (int j = 0; j < numVertices -1; j++) {

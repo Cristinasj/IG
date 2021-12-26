@@ -53,6 +53,7 @@ class Escena
    ObjPLY * ant = nullptr; 
    ObjPLY * ant2 = nullptr; 
    ObjRevolucion *  lata = nullptr; 
+   ObjRevolucion * peon = nullptr; 
    
    public:
 
