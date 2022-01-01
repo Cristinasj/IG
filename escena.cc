@@ -1,5 +1,3 @@
-
-
 #include "aux.h"     // includes de OpenGL/glut/glew, windows, y librería std de C++
 #include "escena.h"
 #include "malla.h" // objetos: Cubo y otros....
@@ -28,7 +26,6 @@ Escena::Escena()
    doge = new ObjPLY("./plys/big_dodge");
    lata = new ObjRevolucion("./plys/lata-pcue", 20);   
    ant = new ObjPLY("./plys/ant"); 
-   ant2 = new ObjPLY("./plys/big_dodge");
    peon = new ObjRevolucion("./plys/peon", 20);  
 }
 
@@ -101,40 +98,33 @@ void Escena::dibujar()
 		case CUBO: cubo->draw(modoDibujar); break;
 		case TETRAEDRO: tetraedro->draw(modoDibujar); break;
 	}
-   
+   */   
 
    glPushMatrix(); 
-      glTranslatef(-200.0,-200.0,200.0); 
-      glScalef(10.0,10.0,10.0); 
-      ant2->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix();
-   */
-   glPushMatrix(); 
+      glScalef(50.0,50.0,50.0); 
       glTranslatef(200.0, 0, 200.0); 
       peon->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-   /*glPushMatrix(); 
+  /*
+   glPushMatrix(); 
       glTranslatef(200.0,0, -200.0); 
       tetraedro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-   */
-  glPushMatrix(); 
+   glPushMatrix(); 
       glScalef(50.0,50.0,50.0); 
        glTranslatef(-10.0,0,10.0); 
       esfera->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-   /*
    glPushMatrix(); 
       glScalef(50.0,50.0,50.0); 
       glTranslatef(10.0,0,-10.0); 
       cilindro->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix(); 
-   */
+   glPopMatrix();    
    glPushMatrix(); 
       glScalef(10.0,10.0,10.0); 
       cono->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
-/*glPushMatrix(); 
+   glPushMatrix(); 
       glTranslatef(-200.0,0,-200.0); 
       glScalef(5.0,5.0,5.0); 
       ant->draw(modoDibujar, modoVisualizar); 
@@ -146,11 +136,10 @@ void Escena::dibujar()
    glPopMatrix();
    glPushMatrix(); 
       glScalef(100.0,100.0,100.0); 
-      // glTranslatef(-200.0,0,0); 
+      glTranslatef(-200.0,0,0); 
       lata->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-    */ 
-   
+   */       
 }
 
 //**************************************************************************

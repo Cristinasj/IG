@@ -51,7 +51,6 @@ class Escena
    Esfera * esfera = nullptr; 
    ObjPLY * doge = nullptr;
    ObjPLY * ant = nullptr; 
-   ObjPLY * ant2 = nullptr; 
    ObjRevolucion *  lata = nullptr; 
    ObjRevolucion * peon = nullptr; 
    
