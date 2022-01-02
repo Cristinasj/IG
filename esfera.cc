@@ -12,5 +12,6 @@ Esfera::Esfera(int num_vert_perfil, int num_instancias_perfil, float r) {
         perfil_original.push_back(TuplaG3<float>(s(0),-s(1), 0));
     }
     init(perfil_original, num_instancias_perfil, true, true); 
+	calcular_normales(); 
 } 
 

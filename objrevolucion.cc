@@ -73,6 +73,7 @@ void ObjRevolucion::init(std::vector<Tupla3f> perfil, int num_instancias, bool t
    // Adición de colores 
    for (int i = 0; i < v.size(); i++)
       c.push_back(Tupla3f(0.0,0.99,0.0)); 
+	calcular_normales(); 
 }
 
 void ObjRevolucion::crearMalla(std::vector<Tupla3f> perfil_original, int num_instancias) {

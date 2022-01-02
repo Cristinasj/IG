@@ -15,6 +15,7 @@ ObjPLY::ObjPLY( const std::string & nombre_archivo )
    for (int i = 0; i < v.size(); i++) 
 		c.push_back(Tupla3f(0.99, 0.0, 0.0));
 
+	calcular_normales(); 
 
 }
 

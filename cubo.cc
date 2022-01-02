@@ -35,27 +35,5 @@ Cubo::Cubo(float lado)
 	for (int i = 0; i < v.size(); i++) 
 		c.push_back(Tupla3f(0.99, 0.0, 0.0));
 
-	std::vector<Tupla3f> nc; 
-	// Se calculan las normales de las caras para usarlos más tarde en los vértices
-	for (int i = 0; i < f.size(); i++) {
-		Tupla3f p = v[f[i](0)]; 
-   		Tupla3f q = v[f[i](1)]; 
-   		Tupla3f r = v[f[i](2)]; 
-		Tupla3f a = q - p; 
-	    Tupla3f b = r - p; 
-	    Tupla3f mc = a.cross(b); 
-		nc.push_back(mc.normalized());  
-	} 
-
-	// Inicializar arrays de normales para los vértices 
-	// Para eso se recorren las caras y se hace una acumulación de su valor en los vértices de los que es adyacente  
-	// Se inicializan a 0 las normales 
-	for (int i = 0; i < v.size(); i++ ) 
-		n.push_back(Tupla3f(0,0,0));  
-	// Acumulación del valor de la normal de las caras
-	for (int i = 0; i < f.size(); i++) {
-		for (int j = 0; j < 3; j++)
-			n[f[i](j)] = n[f[i](j)] + nc[i];  		
-	}
-
+	calcular_normales(); 
 }
