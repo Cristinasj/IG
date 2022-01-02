@@ -93,7 +93,6 @@ void Escena::dibujar()
 
    // Figura a dibujar 
    // Inutil a partir de la P2  
-   /*
    switch (objetoActivo) {
 		case CUBO: cubo->draw(modoDibujar); break;
 		case TETRAEDRO: tetraedro->draw(modoDibujar); break;
@@ -101,42 +100,41 @@ void Escena::dibujar()
    */   
 
    glPushMatrix(); 
-      glScalef(50.0,50.0,50.0); 
-      glTranslatef(200.0, 0, 200.0); 
-      peon->draw(modoDibujar, modoVisualizar); 
+      cubo->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
   /*
    glPushMatrix(); 
+      glTranslatef(200.0, 0, 200.0); 
       glTranslatef(200.0,0, -200.0); 
       tetraedro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
       glScalef(50.0,50.0,50.0); 
-       glTranslatef(-10.0,0,10.0); 
+      glTranslatef(10.0,0,-10.0); 
       esfera->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
       glScalef(50.0,50.0,50.0); 
-      glTranslatef(10.0,0,-10.0); 
-      cilindro->draw(modoDibujar, modoVisualizar); 
+      // Da error de segmentación 
+      // cilindro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();    
    glPushMatrix(); 
       glScalef(10.0,10.0,10.0); 
+      glTranslatef(-200.0,0,-200.0); 
       cono->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
    glPushMatrix(); 
-      glTranslatef(-200.0,0,-200.0); 
       glScalef(5.0,5.0,5.0); 
+      glTranslatef(-200.0,0,200.0); 
       ant->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
    glPushMatrix(); 
-      glTranslatef(-200.0,0,200.0); 
       glScalef(10.0,10.0,10.0); 
+      glTranslatef(-200.0,0,0); 
       doge->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
    glPushMatrix(); 
       glScalef(100.0,100.0,100.0); 
-      glTranslatef(-200.0,0,0); 
       lata->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    */       
