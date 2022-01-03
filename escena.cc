@@ -182,6 +182,8 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
           << "Tecla L: Modo lineas" << std::endl 
           << "Tecla S: Modo solido" << std::endl
           << "Tecla A: Modo ajedrez" << std::endl
+          << "Tecla G: Modo suave (Gouraud) " << std::endl 
+          << "Tecla F: Modo plano (flat) " << std::endl 
           << "Tecla Q: volver al menu principal" << std::endl;
 
          break ;
@@ -234,6 +236,16 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
             std::cout  << std::endl << "Modo ajedrez activado" << std::endl;  
          }
       break; 
+      case 'G' : 
+         if (modoMenu=SELVISUALIZACION) {
+            modoVisualizar=SUAVE; 
+            std::cout << std::endl << "Modo suave activado" << std::endl; 
+         }
+      case 'F' : 
+         if (modoMenu=SELVISUALIZACION) {
+            modoVisualizar=PLANO; 
+            std::cout << std::endl << "Modo plano activado" << std::endl; 
+         }
       // DENTRO DE SELECCIÓN DE MODO DE DIBUJADO   
       case '1' : 
          if (modoMenu=SELDIBUJADO) {
