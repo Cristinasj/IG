@@ -10,7 +10,8 @@
 #include "cono.h"
 #include "objply.h"
 #include "objrevolucion.h"
-
+#include "luzDireccional.h"
+#include "luzPosicional.h"
 
 class Escena
 {
@@ -54,6 +55,9 @@ class Escena
    ObjRevolucion *  lata = nullptr; 
    ObjRevolucion * peon = nullptr; 
    
+   // LuzPosicional * pos = nullptr; 
+   LuzDireccional * dir = nullptr; 
+
    public:
 
    Escena();

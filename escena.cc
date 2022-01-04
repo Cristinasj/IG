@@ -41,6 +41,7 @@ void Escena::inicializar( int UI_window_width, int UI_window_height )
 
 	glEnable( GL_DEPTH_TEST );	// se habilita el z-bufer
    glEnable( GL_CULL_FACE );
+   glEnable(GL_NORMALIZE); // Evita que los escalados varien las normales 
    glEnableClientState(GL_COLOR_ARRAY);
 	Width  = UI_window_width/10;
 	Height = UI_window_height/10;

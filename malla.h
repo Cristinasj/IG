@@ -11,7 +11,7 @@
 #define MALLA3D_H_INCLUDED
 
 #include "aux.h"
-
+#include "material.h"
 // *****************************************************************************
 //
 // clase para objetos 3D (mallas indexadas)
@@ -66,6 +66,9 @@ class Malla3D
    unsigned int id_carasImpares = 0;  
    unsigned int id_coloresPares = 0; 
    unsigned int id_coloresImpares = 0; 
+
+   // Material 
+   Material * mat; 
 
 } ;
 
