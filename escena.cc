@@ -52,6 +52,8 @@ void Escena::inicializar( int UI_window_width, int UI_window_height )
    << "Tecla V: modo visualización" << std::endl 
    << "Tecla D: modo dibujado" << std::endl
    << "Tecla Q: salir" << std::endl;   
+   glEnable(GL_LIGHT1); 
+   glEnable(GL_LIGHT2); 
 }
 
 
@@ -77,21 +79,33 @@ void Escena::dibujar()
     // tetraedro.draw()
  
    // Modo de visualizar 
-   /*
    if (modoVisualizar == PUNTOS) {
+      glDisable(GL_LIGHTING); 
       glPointSize(1); 
       glPolygonMode(GL_FRONT, GL_POINT);
    } 
    else if (modoVisualizar == LINEAS) {
+      glDisable(GL_LIGHTING); 
       glPolygonMode(GL_FRONT, GL_LINE);
    } 
    else if (modoVisualizar == SOLIDO) {
+      glDisable(GL_LIGHTING); 
       glPolygonMode(GL_FRONT, GL_FILL);
    } 
    else if (modoVisualizar == AJEDREZ) {
+      glDisable(GL_LIGHTING); 
       glPolygonMode(GL_FRONT, GL_FILL);
+   } 
+   else if (modoVisualizar == SUAVE) {
+      glEnable(GL_LIGHTING); 
+      glShadeModel(GL_SMOOTH); 
+   }
+   else if (modoVisualizar == PLANO) {
+      glEnable(GL_LIGHTING); 
+      glShadeModel(GL_FLAT); 
    }
 
+   /*
    // Figura a dibujar 
    // Inutil a partir de la P2  
    switch (objetoActivo) {

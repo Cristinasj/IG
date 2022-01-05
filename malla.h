@@ -68,7 +68,7 @@ class Malla3D
    unsigned int id_coloresImpares = 0; 
 
    // Material 
-   Material * mat; 
+   Material * m; 
 
 } ;
 
