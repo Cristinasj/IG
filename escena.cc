@@ -118,12 +118,14 @@ void Escena::dibujar()
       glTranslatef(10.0,0,-10.0); 
       cubo->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
+   */   
+   // Objeto intermedio 
    glPushMatrix(); 
-      glTranslatef(200.0, 0, 200.0); 
+      glTranslatef(3.0, 0, 3.0); 
       glTranslatef(200.0,0, -200.0); 
       tetraedro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-   */   
+   // Objeto blanco opaco 
    glPushMatrix(); 
       glScalef(50.0,50.0,50.0); 
       esfera->draw(modoDibujar, modoVisualizar); 
@@ -139,11 +141,14 @@ void Escena::dibujar()
       glTranslatef(-200.0,0,-200.0); 
       cono->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
+   */
+   // Objeto negro brillante 
    glPushMatrix(); 
-      glScalef(5.0,5.0,5.0); 
-      glTranslatef(-200.0,0,200.0); 
+      glScalef(3.0,3.0,3.0); 
+      glTranslatef(-20.0,0,20.0); 
       ant->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
+   /* 
    glPushMatrix(); 
       glScalef(10.0,10.0,10.0); 
       glTranslatef(-200.0,0,0); 
