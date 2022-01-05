@@ -52,8 +52,8 @@ void Escena::inicializar( int UI_window_width, int UI_window_height )
    << "Tecla V: modo visualización" << std::endl 
    << "Tecla D: modo dibujado" << std::endl
    << "Tecla Q: salir" << std::endl;   
+   glEnable(GL_LIGHT0); 
    glEnable(GL_LIGHT1); 
-   glEnable(GL_LIGHT2); 
 }
 
 
@@ -96,13 +96,14 @@ void Escena::dibujar()
       glDisable(GL_LIGHTING); 
       glPolygonMode(GL_FRONT, GL_FILL);
    } 
-   else if (modoVisualizar == SUAVE) {
-      glEnable(GL_LIGHTING); 
+   else if (modoVisualizar == ILUMINACION) {
+      glEnable(GL_LIGHTING);
+      // glLightfv(GL_LIGHT1, GL_DIFUSE, Tupla4f)
+      // glLightfv(GL_LIGHT1, GL_SPECULAR, Tupla4f)
+      // glLightfv(GL_LIGHT1, GL_AMBIENT, Tupla4f)
+      // glLightfv(GL_LIGHT1, GL_POSITION, Tupla4f);  
       glShadeModel(GL_SMOOTH); 
-   }
-   else if (modoVisualizar == PLANO) {
-      glEnable(GL_LIGHTING); 
-      glShadeModel(GL_FLAT); 
+      // glShadeModel(GL_FLAT); 
    }
 
    /*
@@ -112,22 +113,22 @@ void Escena::dibujar()
 		case CUBO: cubo->draw(modoDibujar); break;
 		case TETRAEDRO: tetraedro->draw(modoDibujar); break;
 	}
-   */   
 
    glPushMatrix(); 
+      glTranslatef(10.0,0,-10.0); 
       cubo->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-  /*
    glPushMatrix(); 
       glTranslatef(200.0, 0, 200.0); 
       glTranslatef(200.0,0, -200.0); 
       tetraedro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
+   */   
    glPushMatrix(); 
       glScalef(50.0,50.0,50.0); 
-      glTranslatef(10.0,0,-10.0); 
       esfera->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
+  /*
    glPushMatrix(); 
       glScalef(50.0,50.0,50.0); 
       // Da error de segmentación 
@@ -181,7 +182,7 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          else {
             salir=true ;
          }
-         break ;
+      break ;
       /*
       case 'O' :
          // ENTRAMOS EN MODO SELECCION DE OBJETO
@@ -189,7 +190,7 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          std::cout << "Modo selección de objeto" << std::endl;  
          break ;
       */
-        case 'V' :
+      case 'V' :
          // ENTRAMOS EN MODO SELECCION DE MODO DE VISUALIZACION
          modoMenu=SELVISUALIZACION;
          std::cout << std::endl << "Selección de modo de visualización" << std::endl
@@ -201,8 +202,8 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
           << "Tecla F: Modo plano (flat) " << std::endl 
           << "Tecla Q: volver al menu principal" << std::endl;
 
-         break ;
-       case 'D' :
+      break ;
+      case 'D' :
          // ENTRAMOS EN MODO SELECCION DE DIBUJADO
          modoMenu=SELDIBUJADO;
          std::cout << std::endl << "Selección de dibujado" << std::endl
@@ -210,9 +211,11 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
           << "Tecla 2: Modo diferido" << std::endl
           << "Tecla Q: volver al menu principal" << std::endl;
 
-         break ;
+      break ;
+   }
+
       // DENTRO MODO SELECCIÓN OBJETO 
-      /*
+      /* Inutil a partir de la práctica 2 
       case 'C' :
          if (modoMenu=SELOBJETO) {
             objetoActivo=CUBO;  
@@ -226,7 +229,9 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          }
       break;
       */
-      // DENTRO DEL MODO DE VISUALIZACIÓN 
+
+      // DENTRO DEL MODO DE VISUALIZACIÓN    
+   switch( toupper(tecla) ) {
       case 'P' : 
          if (modoMenu=SELVISUALIZACION) {
             modoVisualizar=PUNTOS; 
@@ -251,16 +256,59 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
             std::cout  << std::endl << "Modo ajedrez activado" << std::endl;  
          }
       break; 
-      case 'G' : 
+      case 'I' : 
          if (modoMenu=SELVISUALIZACION) {
-            modoVisualizar=SUAVE; 
-            std::cout << std::endl << "Modo suave activado" << std::endl; 
+            modoVisualizar=ILUMINACION; 
+            std::cout << std::endl << "Modo iluminacion activado"; 
+            std::cout << std::endl << "Tecla 0: eleccion de la camara 0" << std::endl << "Tecla 1: elección de la cámara 1" << std::endl; 
          }
-      case 'F' : 
-         if (modoMenu=SELVISUALIZACION) {
-            modoVisualizar=PLANO; 
-            std::cout << std::endl << "Modo plano activado" << std::endl; 
+      break; 
+ 
+
+   }
+   switch( toupper(tecla) ) {
+     // DENTRO DE ILUMINACIÓN 
+      case '0' :
+         if (modoVisualizar=ILUMINACION) {
+            camaraSeleccionada=0; 
+            std::cout << std::endl << "Tecla A: variación ángulo alfa" << std::endl << "Tecla B: variación ángulo beta" << std::endl; 
+         } 
+      break; 
+      case '1' :
+         if (modoVisualizar=ILUMINACION) {
+            camaraSeleccionada=1; 
+            std::cout << std::endl << "Tecla A: variación ángulo alfa" << std::endl << "Tecla B: variación ángulo beta" << std::endl; 
+         } 
+      break;
+      case 'A' : 
+         if (modoVisualizar=ILUMINACION) {
+            seleccionAngulo = ALFA;  
+            std::cout << std::endl << "Variación del ángulo alfa" << std::endl; 
+            std::cout << "Tecla >: incremeta el ángulo" << std::endl << "Tecla <: decrementa el ángulo" << std::endl; 
          }
+      break; 
+      case 'B' : 
+         if (modoVisualizar=ILUMINACION) {
+            seleccionAngulo = BETA;  
+            std::cout << std::endl << "Variación del ángulo beta" << std::endl; 
+            std::cout << "Tecla >: incremeta el ángulo" << std::endl << "Tecla <: decrementa el ángulo" << std::endl; 
+         }
+      break; 
+      // DENTRO DE MODO ÁNGULO 
+      case '>' : 
+         if (modoVisualizar=ILUMINACION) {
+            variacionAngulo=INCREMENTA; 
+            std::cout << std::endl << "Se incrementa el ángulo" << std::endl; 
+         }
+      break;
+      case '<' : 
+         if (modoVisualizar=ILUMINACION) {
+            variacionAngulo=DECREMENTA; 
+            std::cout << std::endl << "Se decrementa el ángulo" << std::endl; 
+         } 
+      break; 
+   }
+   switch( toupper(tecla) ) {
       // DENTRO DE SELECCIÓN DE MODO DE DIBUJADO   
       case '1' : 
          if (modoMenu=SELDIBUJADO) {
@@ -273,7 +321,7 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
             modoDibujar=2; 
             std::cout  << std::endl << "Modo diferido" << std::endl;  
          }
-      break; 
+      break;  
    }
    return salir;
 }

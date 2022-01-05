@@ -44,6 +44,9 @@ class Escena
 	// objetovisible objetoActivo = CUBO;
    modovisualizacion modoVisualizar = AJEDREZ;
    int modoDibujar = 1; // 1 clásico 2 diferido  
+   seleccionangulo seleccionAngulo = ALFA; 
+   variacionangulo variacionAngulo = INCREMENTA; 
+   int camaraSeleccionada = 0; 
    
    Cubo * cubo = nullptr ; // es importante inicializarlo a 'nullptr'
    Tetraedro * tetraedro= nullptr ; // es importante inicializarlo a 'nullptr'

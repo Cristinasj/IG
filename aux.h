@@ -16,7 +16,9 @@
 
 typedef enum {NADA, SELOBJETO,SELVISUALIZACION,SELDIBUJADO} menu;
 typedef enum {NINGUNO, CUBO, TETRAEDRO} objetovisible;
-typedef enum {PUNTOS, LINEAS, SOLIDO, AJEDREZ, SUAVE, PLANO} modovisualizacion; 
+typedef enum {PUNTOS, LINEAS, SOLIDO, AJEDREZ, ILUMINACION} modovisualizacion; 
+typedef enum {ALFA, BETA} seleccionangulo; 
+typedef enum {INCREMENTA, DECREMENTA} variacionangulo; 
 
 #ifdef _WIN32
 #  include <windows.h>

@@ -174,6 +174,7 @@ void Malla3D::draw_ModoDiferido_Ajedrez() {
 
 void Malla3D::draw(int modo, modovisualizacion visualizacion)
 {
+   // m->aplicar(); 
    // completar .....(práctica 1)
    if (visualizacion == AJEDREZ) {
 

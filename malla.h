@@ -43,6 +43,8 @@ class Malla3D
    // o bien a 'draw_ModoDiferido' (modo diferido, VBOs)
    void draw(int modo, modovisualizacion modoVisualizar) ;
 
+   void setMaterial(Material m); 
+
    protected:
 
    void calcular_normales() ; // calcula tabla de normales de vértices (práctica 3)
@@ -68,7 +70,7 @@ class Malla3D
    unsigned int id_coloresImpares = 0; 
 
    // Material 
-   Material * m; 
+   Material m; 
 
 } ;
 
