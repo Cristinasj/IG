@@ -322,7 +322,7 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
             std::cout  << std::endl << "Modo diferido" << std::endl;  
          }
       break;  
-   }
+   }  
    return salir;
 }
 //**************************************************************************
