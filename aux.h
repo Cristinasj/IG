@@ -14,7 +14,9 @@
 #ifndef AUX_H_INCLUDED
 #define AUX_H_INCLUDED
 
-typedef enum {NADA, SELOBJETO,SELVISUALIZACION,SELDIBUJADO} menu;
+// bool globalTapas = false; 
+
+typedef enum {NADA, SELOBJETO,SELVISUALIZACION,SELDIBUJADO, TAPAS} menu;
 typedef enum {NINGUNO, CUBO, TETRAEDRO} objetovisible;
 typedef enum {PUNTOS, LINEAS, SOLIDO, AJEDREZ, ILUMINACION} modovisualizacion; 
 typedef enum {ALFA, BETA} seleccionangulo; 

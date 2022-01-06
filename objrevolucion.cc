@@ -34,20 +34,22 @@ ObjRevolucion::ObjRevolucion(std::vector<Tupla3f> archivo, int num_instancias, b
 
 void ObjRevolucion::init(std::vector<Tupla3f> perfil, int num_instancias, bool tapa_sup, bool tapa_inf) {
    // Creación correcta de la topología 
-   if (perfil[0](1) < perfil[perfil.size()-1](1)) {
+   if (perfil[0](1) > perfil[perfil.size()-1](1)) {
       reverse(perfil.begin(), perfil.end()); 
    }
+
+   const float UMBRAL = 1.0; 
 
    // Búsqueda de los polos situados en el eje y 
    std::vector<Tupla3f> polos; 
    std::vector<Tupla3f> sinPolos; 
-   if (perfil[0](0) == 0.0 && perfil[0](2) == 0.0) 
+   if (perfil[0](0) < UMBRAL && perfil[0](2) < UMBRAL) 
       polos.push_back(perfil[0]); 
    else 
       sinPolos.push_back(perfil[0]); 
    for (int i = 1; i < perfil.size()-1; i++)
       sinPolos.push_back(perfil[i]); 
-   if (perfil[perfil.size()-1](0) == 0.0 && perfil[perfil.size()-1](2) == 0.0)
+   if (perfil[perfil.size()-1](0) < UMBRAL && perfil[perfil.size()-1](2) < UMBRAL)
       polos.push_back(perfil[perfil.size()-1]); 
    else 
       sinPolos.push_back(perfil[perfil.size()-1]); 
@@ -69,6 +71,11 @@ void ObjRevolucion::init(std::vector<Tupla3f> perfil, int num_instancias, bool t
    }
       
       // Tapa inferior 
+   /*
+   if (tapa_inf) {
+      for (int i = num_instancias - 1; i > 0; i--)
+         f.push_back(TuplaG3<unsigned int>(0, i, i-1)); 
+   }*/
 
    // Adición de colores 
    for (int i = 0; i < v.size(); i++)

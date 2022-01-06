@@ -7,6 +7,10 @@
 //
 // *****************************************************************************
 
+void Malla3D::setMaterial(Material material) {
+   m = material; 
+}
+
 void Malla3D::calcular_normales() {
 	// Se calculan las normales de las caras para usarlos más tarde en los vértices
 	std::vector<Tupla3f> nc; 
@@ -174,8 +178,7 @@ void Malla3D::draw_ModoDiferido_Ajedrez() {
 
 void Malla3D::draw(int modo, modovisualizacion visualizacion)
 {
-   // m->aplicar(); 
-   // completar .....(práctica 1)
+   m.aplicar(); 
    if (visualizacion == AJEDREZ) {
 
       switch(modo) {
@@ -196,5 +199,4 @@ void Malla3D::draw(int modo, modovisualizacion visualizacion)
          break; 
       }
    }
-
 }

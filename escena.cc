@@ -17,6 +17,10 @@ Escena::Escena()
 
     ejes.changeAxisSize( 5000 );
 
+   // No sé donde poner esto sinceramente
+   GLfloat lmodel_ambient[] = {0.2, 0.2, 0.2, 1.0};  
+   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient); 
+
    // Crear los objetos de la escena
    cubo = new Cubo(100.0);
    tetraedro = new Tetraedro();
@@ -52,8 +56,8 @@ void Escena::inicializar( int UI_window_width, int UI_window_height )
    << "Tecla V: modo visualización" << std::endl 
    << "Tecla D: modo dibujado" << std::endl
    << "Tecla Q: salir" << std::endl;   
-   glEnable(GL_LIGHT0); 
-   glEnable(GL_LIGHT1); 
+   glEnable(GL_LIGHT0); // Direccional  
+   glEnable(GL_LIGHT1); // Puntual 
 }
 
 
@@ -119,15 +123,19 @@ void Escena::dibujar()
       cubo->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    */   
-   // Objeto intermedio 
+   // Materiales: blanco opaco, negro brillante, intermedio 
+   Material blanco = Material(Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), 0.0);
+   Material negro = Material(Tupla4f(0.0, 0.0, 0.0, 1.0), Tupla4f(0.0, 0.0, 0.0, 1.0), Tupla4f(0.0, 0.0, 0.0, 1.0), 1.0); 
+   Material intermedio = Material(Tupla4f(0.0, 0.0, 1.0, 1.0), Tupla4f(0.0, 0.0, 1.0, 1.0), Tupla4f(0.0, 0.0, 1.0, 1.0), 0.5);  
+
    glPushMatrix(); 
-      glTranslatef(3.0, 0, 3.0); 
-      glTranslatef(200.0,0, -200.0); 
+      glTranslatef(100.0,0, 0.0); 
+      tetraedro->setMaterial(intermedio); 
       tetraedro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-   // Objeto blanco opaco 
    glPushMatrix(); 
-      glScalef(50.0,50.0,50.0); 
+      glScalef(50.0,50.0,50.0);
+      esfera->setMaterial(blanco);  
       esfera->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
   /*
@@ -145,7 +153,8 @@ void Escena::dibujar()
    // Objeto negro brillante 
    glPushMatrix(); 
       glScalef(3.0,3.0,3.0); 
-      glTranslatef(-20.0,0,20.0); 
+      glTranslatef(-20.0,0,20.0);
+      ant->setMaterial(negro);  
       ant->draw(modoDibujar, modoVisualizar); 
    glPopMatrix();
    /* 
@@ -182,6 +191,7 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
             std::cout << std::endl << "Menú reseteado" << std::endl 
             << "Tecla V: selección de modo de visualización" << std::endl 
             << "Tecla D: selección de modo de dibujado" << std::endl
+            << "Tecla T: quitar o poner tapas" << std::endl
             << "Tecla Q: salir" << std::endl;  
          }
          else {
@@ -198,25 +208,29 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
       case 'V' :
          // ENTRAMOS EN MODO SELECCION DE MODO DE VISUALIZACION
          modoMenu=SELVISUALIZACION;
-         std::cout << std::endl << "Selección de modo de visualización" << std::endl
+         std::cout << std::endl << "SELECCIÓN DE MODO DE VISUALIZACIÓN" << std::endl
           << "Tecla P: Modo puntos" << std::endl 
           << "Tecla L: Modo lineas" << std::endl 
           << "Tecla S: Modo solido" << std::endl
           << "Tecla A: Modo ajedrez" << std::endl
-          << "Tecla G: Modo suave (Gouraud) " << std::endl 
-          << "Tecla F: Modo plano (flat) " << std::endl 
+          << "Tecla I: Modo iluminación " << std::endl 
           << "Tecla Q: volver al menu principal" << std::endl;
 
       break ;
       case 'D' :
          // ENTRAMOS EN MODO SELECCION DE DIBUJADO
          modoMenu=SELDIBUJADO;
-         std::cout << std::endl << "Selección de dibujado" << std::endl
+         std::cout << std::endl << "SELECCIÓN DE DIBUJADO" << std::endl
           << "Tecla 1: Modo inmediato" << std::endl 
           << "Tecla 2: Modo diferido" << std::endl
           << "Tecla Q: volver al menu principal" << std::endl;
 
       break ;
+      case 'T' : 
+         // ENTRAMOS EN MODO SELECCIÓN DE TAPAS 
+         modoMenu=TAPAS; 
+         std::cout << std::endl << "SELECCIÓN DE TAPAS" << std::endl << "Tecla +: poner tapas" << std::endl 
+         << "Tecla -: quitar tapas" << std::endl; 
    }
 
       // DENTRO MODO SELECCIÓN OBJETO 
@@ -234,6 +248,22 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          }
       break;
       */
+
+     // DENTRO DEL MODO DE SELECCIÓN DE TAPAS 
+   switch(toupper(tecla)) {
+      case '+': 
+         if (modoMenu=TAPAS) {
+//            globalTapas=true; 
+            std::cout << std::endl << "Ver tapas activado" << std::endl; 
+         }
+      break; 
+      case '-': 
+         if (modoMenu=TAPAS) {
+//            globalTapas=false; 
+            std::cout << std::endl << "Ver tapas desactivado" << std::endl; 
+         }
+      break;
+   }
 
       // DENTRO DEL MODO DE VISUALIZACIÓN    
    switch( toupper(tecla) ) {
