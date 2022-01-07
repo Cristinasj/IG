@@ -22,7 +22,7 @@ Escena::Escena()
    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient); 
 
    // Crear los objetos de la escena
-   cubo = new Cubo(100.0);
+   cubo = new Cubo();
    tetraedro = new Tetraedro();
    cono = new Cono(); 
    esfera = new Esfera(); 
@@ -117,57 +117,38 @@ void Escena::dibujar()
 		case CUBO: cubo->draw(modoDibujar); break;
 		case TETRAEDRO: tetraedro->draw(modoDibujar); break;
 	}
+   */   
+
+  // Materiales: Camiseta, negro, piel, pelo 
+   Material piel = Material(Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), 0.0);
+   Material camiseta = Material(Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), 0.0);
+   Material negro = Material(Tupla4f(0.0, 0.0, 0.0, 1.0), Tupla4f(0.0, 0.0, 0.0, 1.0), Tupla4f(0.0, 0.0, 0.0, 1.0), 1.0); 
+   Material pelo = Material(Tupla4f(0.0, 0.0, 1.0, 1.0), Tupla4f(0.0, 0.0, 1.0, 1.0), Tupla4f(0.0, 0.0, 1.0, 1.0), 0.5);  
 
    glPushMatrix(); 
-      glTranslatef(10.0,0,-10.0); 
+      glTranslatef(50.0,0,-50.0); 
+      cubo->setMaterial(pelo);  
       cubo->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-   */   
-   // Materiales: blanco opaco, negro brillante, intermedio 
-   Material blanco = Material(Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), 0.0);
-   Material negro = Material(Tupla4f(0.0, 0.0, 0.0, 1.0), Tupla4f(0.0, 0.0, 0.0, 1.0), Tupla4f(0.0, 0.0, 0.0, 1.0), 1.0); 
-   Material intermedio = Material(Tupla4f(0.0, 0.0, 1.0, 1.0), Tupla4f(0.0, 0.0, 1.0, 1.0), Tupla4f(0.0, 0.0, 1.0, 1.0), 0.5);  
-
    glPushMatrix(); 
-      glTranslatef(100.0,0, 0.0); 
-      tetraedro->setMaterial(intermedio); 
+      glTranslatef(50.0,0,50.0); 
+      cubo->setMaterial(negro);  
+      cubo->draw(modoDibujar, modoVisualizar); 
+   glPopMatrix(); 
+   glPushMatrix(); 
+      glTranslatef(-50.0,0,50.0); 
+      cubo->setMaterial(camiseta);  
+      cubo->draw(modoDibujar, modoVisualizar); 
+   glPopMatrix(); 
+   glPushMatrix(); 
+      glTranslatef(-50.0,0, -50.0); 
+      tetraedro->setMaterial(piel); 
       tetraedro->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
-      glScalef(50.0,50.0,50.0);
-      esfera->setMaterial(blanco);  
+      esfera->setMaterial(piel);  
       esfera->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-  /*
-   glPushMatrix(); 
-      glScalef(50.0,50.0,50.0); 
-      // Da error de segmentación 
-      // cilindro->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix();    
-   glPushMatrix(); 
-      glScalef(10.0,10.0,10.0); 
-      glTranslatef(-200.0,0,-200.0); 
-      cono->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix();
-   */
-   // Objeto negro brillante 
-   glPushMatrix(); 
-      glScalef(3.0,3.0,3.0); 
-      glTranslatef(-20.0,0,20.0);
-      ant->setMaterial(negro);  
-      ant->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix();
-   /* 
-   glPushMatrix(); 
-      glScalef(10.0,10.0,10.0); 
-      glTranslatef(-200.0,0,0); 
-      doge->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix();
-   glPushMatrix(); 
-      glScalef(100.0,100.0,100.0); 
-      lata->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix(); 
-   */       
 }
 
 //**************************************************************************

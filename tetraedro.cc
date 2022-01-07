@@ -4,7 +4,7 @@
 
 Tetraedro::Tetraedro()
 {
-   float lado = 100.0; 
+   float lado = 10.0; 
 
    // inicializar la tabla de vértices
 	

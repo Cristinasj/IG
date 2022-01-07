@@ -1,6 +1,6 @@
 *.o
 pracs_exe
-.~lock.RubricaEvaluacionAlumnos.ods#
+*lock*
 Entrega3.zip
 RubricaEntrega3.pdf
 solicitudEv.tar.gz
