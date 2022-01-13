@@ -12,14 +12,18 @@
 #include "objrevolucion.h"
 #include "luzDireccional.h"
 #include "luzPosicional.h"
+#include "humanoide.h"
+#include "materiales.h"
 
 class Escena
 {
 
    private:
-
-
-
+   Cubo * cubo; 
+   Esfera * esfera; 
+   Cabeza * cabeza; 
+   Materiales materiales; 
+   
  // ** PARÁMETROS DE LA CÁMARA (PROVISIONAL)
 
        // variables que definen la posicion de la camara en coordenadas polares
@@ -42,21 +46,13 @@ class Escena
    // Objetos de la escena
    Ejes ejes;
 	// objetovisible objetoActivo = CUBO;
-   modovisualizacion modoVisualizar = AJEDREZ;
+   modovisualizacion modoVisualizar = ILUMINACION;
    int modoDibujar = 1; // 1 clásico 2 diferido  
    seleccionangulo seleccionAngulo = ALFA; 
    variacionangulo variacionAngulo = INCREMENTA; 
    int camaraSeleccionada = 0; 
-   
-   Cubo * cubo = nullptr ; // es importante inicializarlo a 'nullptr'
-   Tetraedro * tetraedro= nullptr ; // es importante inicializarlo a 'nullptr'
-   Cilindro * cilindro = nullptr; 
-   Cono * cono = nullptr; 
-   Esfera * esfera = nullptr; 
-   ObjPLY * doge = nullptr;
-   ObjPLY * ant = nullptr; 
-   ObjRevolucion *  lata = nullptr; 
-   ObjRevolucion * peon = nullptr; 
+
+
    
    // LuzPosicional * pos = nullptr; 
    LuzDireccional * dir = nullptr; 

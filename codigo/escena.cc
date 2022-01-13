@@ -22,15 +22,9 @@ Escena::Escena()
    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient); 
 
    // Crear los objetos de la escena
-   cubo = new Cubo();
-   tetraedro = new Tetraedro();
-   cono = new Cono(); 
+   cabeza = new Cabeza(); 
+   cubo = new Cubo(); 
    esfera = new Esfera(); 
-   cilindro = new Cilindro();
-   doge = new ObjPLY("./plys/big_dodge");
-   lata = new ObjRevolucion("./plys/lata-pcue", 20);   
-   ant = new ObjPLY("./plys/ant"); 
-   peon = new ObjRevolucion("./plys/peon", 20);  
 }
 
 //**************************************************************************
@@ -109,7 +103,6 @@ void Escena::dibujar()
       glShadeModel(GL_SMOOTH); 
       // glShadeModel(GL_FLAT); 
    }
-
    /*
    // Figura a dibujar 
    // Inutil a partir de la P2  
@@ -119,36 +112,18 @@ void Escena::dibujar()
 	}
    */   
 
-  // Materiales: Camiseta, negro, piel, pelo 
-   Material piel = Material(Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), 0.0);
-   Material camiseta = Material(Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), Tupla4f(1.0, 1.0, 1.0, 1.0), 0.0);
-   Material negro = Material(Tupla4f(0.0, 0.0, 0.0, 1.0), Tupla4f(0.0, 0.0, 0.0, 1.0), Tupla4f(0.0, 0.0, 0.0, 1.0), 1.0); 
-   Material pelo = Material(Tupla4f(0.0, 0.0, 1.0, 1.0), Tupla4f(0.0, 0.0, 1.0, 1.0), Tupla4f(0.0, 0.0, 1.0, 1.0), 0.5);  
-
    glPushMatrix(); 
       glTranslatef(50.0,0,-50.0); 
-      cubo->setMaterial(pelo);  
-      cubo->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix(); 
-   glPushMatrix(); 
-      glTranslatef(50.0,0,50.0); 
-      cubo->setMaterial(negro);  
-      cubo->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix(); 
-   glPushMatrix(); 
-      glTranslatef(-50.0,0,50.0); 
-      cubo->setMaterial(camiseta);  
+      cubo->setMaterial(materiales.pelo);  
       cubo->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
    glPushMatrix(); 
       glTranslatef(-50.0,0, -50.0); 
-      tetraedro->setMaterial(piel); 
-      tetraedro->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix(); 
-   glPushMatrix(); 
-      esfera->setMaterial(piel);  
+      esfera->setMaterial(materiales.camiseta);  
       esfera->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
+   cabeza->dibujar(); 
+   
 }
 
 //**************************************************************************

@@ -41,7 +41,7 @@ class Malla3D
    // función que redibuja el objeto
    // está función llama a 'draw_ModoInmediato' (modo inmediato)
    // o bien a 'draw_ModoDiferido' (modo diferido, VBOs)
-   void draw(int modo, modovisualizacion modoVisualizar) ;
+   void draw(int modo = 2, modovisualizacion modoVisualizar = SOLIDO) ;
 
    void setMaterial(Material m); 
 
