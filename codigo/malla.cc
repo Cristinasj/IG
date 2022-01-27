@@ -50,8 +50,10 @@ unsigned int Malla3D::CrearVBO (unsigned int tipo_vbo, unsigned int tamanio_byte
 void Malla3D::draw_ModoInmediato() {
   // visualizar la malla usando glDrawElements
   // completar (práctica 1)
-   glEnableClientState(GL_VERTEX_ARRAY);
+   glEnableClientState(GL_VERTEX_ARRAY); 
    glVertexPointer(3,GL_FLOAT, 0, v.data());
+   glEnableClientState(GL_NORMAL_ARRAY); 
+   glNormalPointer(GL_FLOAT, 0, n.data()); 
    glColorPointer(3, GL_FLOAT, 0, c.data()); 
    glDrawElements(GL_TRIANGLES,3*f.size(),GL_UNSIGNED_INT, f.data());
 }
@@ -77,14 +79,15 @@ void Malla3D::draw_ModoInmediato_Ajedrez() {
       coloresImpares.push_back(Tupla3f(0,0.99,0.99)); 
    
    // Dibujado de caras pares 
-   glEnableClientState(GL_VERTEX_ARRAY);
+   glEnableClientState(GL_VERTEX_ARRAY); 
+   glVertexPointer(3,GL_FLOAT, 0, v.data());
+   glEnableClientState(GL_NORMAL_ARRAY); 
+   glNormalPointer(GL_FLOAT, 0, n.data()); 
    glVertexPointer(3,GL_FLOAT, 0, v.data());
    glColorPointer(3, GL_FLOAT, 0, coloresPares.data()); 
    glDrawElements(GL_TRIANGLES,3*carasPares.size(),GL_UNSIGNED_INT, carasPares.data());
 
    // Dibujado de caras impares
-   glEnableClientState(GL_VERTEX_ARRAY);
-   glVertexPointer(3,GL_FLOAT, 0, v.data());
    glColorPointer(3, GL_FLOAT, 0, coloresImpares.data()); 
    glDrawElements(GL_TRIANGLES,3*carasImpares.size(),GL_UNSIGNED_INT, carasImpares.data());
 }
@@ -153,7 +156,6 @@ void Malla3D::draw_ModoDiferido_Ajedrez() {
    glBindBuffer(GL_ARRAY_BUFFER, id_vbo_ver);
    glVertexPointer(3, GL_FLOAT, 0, 0); 
    glBindBuffer(GL_ARRAY_BUFFER, 0); 
-   glEnableClientState(GL_VERTEX_ARRAY); 
    
    glBindBuffer(GL_ARRAY_BUFFER, id_coloresPares);
    glColorPointer(3, GL_FLOAT, 0, 0); 
