@@ -11,7 +11,7 @@ class Luz {
 
     protected: 
 
-    Tupla4f posicion; 
+    Tupla3f posicion; 
     unsigned int id = 0; // El tipo es equivalente a glEnum
     Tupla4f colorAmbiente; 
     Tupla4f colorDifuso;

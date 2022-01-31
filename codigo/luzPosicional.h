@@ -1,5 +1,5 @@
-#ifndef DIRECCIONAL
-#define DIRECCIONAL
+#ifndef POSICIONAL
+#define POSICIONAL
 
 #include "luz.h"
 
