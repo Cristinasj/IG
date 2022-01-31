@@ -7,6 +7,7 @@ class Luz {
     public: 
 
     void activar(); 
+    void desactivar(); 
 
     protected: 
 
