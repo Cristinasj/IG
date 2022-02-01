@@ -1,7 +1,7 @@
 *.o
 pracs_exe
 *lock*
-Entrega3.zip
-RubricaEntrega3.pdf
+*.zip
+*.pdf
 solicitudEv.tar.gz
 todo.txt
