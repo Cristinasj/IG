@@ -24,7 +24,14 @@ Escena::Escena()
    // Crear los objetos de la escena
    cabeza = new Cabeza(); 
    cubo = new Cubo(); 
-   esfera = new Esfera(); 
+   esfera = new Esfera();
+   
+   // Luces de la escena 
+   Tupla3f posicion = Tupla3f(0.0, 0.0, 0.0); 
+   Tupla2f orientacion = Tupla2f(0.0, 0.0); 
+   Tupla4f blanco = Tupla4f(1.0, 0, 1.0, 1.0);  
+   luzPosicional = new LuzPosicional(posicion, GL_LIGHT1, blanco, blanco, blanco); 
+   luzDireccional = new LuzDireccional(orientacion, GL_LIGHT2, blanco, blanco, blanco); 
 }
 
 //**************************************************************************
@@ -50,8 +57,9 @@ void Escena::inicializar( int UI_window_width, int UI_window_height )
    << "Tecla V: modo visualización" << std::endl 
    << "Tecla D: modo dibujado" << std::endl
    << "Tecla Q: salir" << std::endl;   
-   glEnable(GL_LIGHT0); // Direccional  
-   glEnable(GL_LIGHT1); // Puntual 
+   glEnable(GL_LIGHT0); // Defecto 
+   glEnable(GL_LIGHT1); // Puntual
+   glEnable(GL_LIGHT2); // Direccional  
 }
 
 
@@ -276,20 +284,7 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
             std::cout << std::endl << "Tecla A: variación ángulo alfa" << std::endl << "Tecla B: variación ángulo beta" << std::endl; 
          } 
       break;
-      case 'A' : 
-         if (modoVisualizar=ILUMINACION) {
-            seleccionAngulo = ALFA;  
-            std::cout << std::endl << "Variación del ángulo alfa" << std::endl; 
-            std::cout << "Tecla >: incremeta el ángulo" << std::endl << "Tecla <: decrementa el ángulo" << std::endl; 
-         }
-      break; 
-      case 'B' : 
-         if (modoVisualizar=ILUMINACION) {
-            seleccionAngulo = BETA;  
-            std::cout << std::endl << "Variación del ángulo beta" << std::endl; 
-            std::cout << "Tecla >: incremeta el ángulo" << std::endl << "Tecla <: decrementa el ángulo" << std::endl; 
-         }
-      break; 
+      
       // DENTRO DE MODO ÁNGULO 
       case '>' : 
          if (modoVisualizar=ILUMINACION) {
@@ -304,6 +299,7 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          } 
       break; 
    }
+   // Segundo SWITCH para que no se repitan los valores 
    switch( toupper(tecla) ) {
       // DENTRO DE SELECCIÓN DE MODO DE DIBUJADO   
       case '1' : 
@@ -317,7 +313,23 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
             modoDibujar=2; 
             std::cout  << std::endl << "Modo diferido" << std::endl;  
          }
-      break;  
+      break; 
+      // Dentro de selección de ángulo 
+      // Esto da error porque A también es para ajedrez
+      case 'A' : 
+         if (modoVisualizar=ILUMINACION) {
+            seleccionAngulo = ALFA;  
+            std::cout << std::endl << "Variación del ángulo alfa" << std::endl; 
+            std::cout << "Tecla >: incremeta el ángulo" << std::endl << "Tecla <: decrementa el ángulo" << std::endl; 
+         }
+      break; 
+      case 'B' : 
+         if (modoVisualizar=ILUMINACION) {
+            seleccionAngulo = BETA;  
+            std::cout << std::endl << "Variación del ángulo beta" << std::endl; 
+            std::cout << "Tecla >: incremeta el ángulo" << std::endl << "Tecla <: decrementa el ángulo" << std::endl; 
+         }
+      break; 
    }  
    return salir;
 }

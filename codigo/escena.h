@@ -54,8 +54,8 @@ class Escena
 
 
    
-   LuzPosicional * pos = nullptr; 
-   LuzDireccional * dir = nullptr; 
+   LuzPosicional * luzPosicional = nullptr; 
+   LuzDireccional * luzDireccional = nullptr; 
 
    public:
 
