@@ -150,6 +150,27 @@ void Escena::dibujar()
 // Para variar los angulos de la luz direccional 
 const int VARIACION = 10; 
 
+// Letras ocupadas
+// Q
+// V
+// D
+// T
+// + 
+// - 
+// P 
+// L 
+// S 
+// A 
+// I 
+// 1 
+// 2 
+// < 
+// > 
+// F 
+// B 
+// = 
+// . 
+
 bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
 {
    using namespace std ;
@@ -267,7 +288,14 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          if (modoMenu=SELVISUALIZACION) {
             modoVisualizar=ILUMINACION; 
             std::cout << std::endl << "Modo iluminacion activado"; 
-            std::cout << std::endl << "Tecla 0: eleccion de la luz 0" << std::endl << "Tecla 1: elección de la luz 1" << std::endl; 
+            std::cout << std::endl << "Tecla =: apagar/encender la luz Direccional"; 
+            std::cout << std::endl << "Tecla .: apagar/encender la luz Posicional"; 
+            std::cout << std::endl << "Tecla F: variación del ángulo alFa";
+            std::cout << std::endl << "Tecla B: variación del ángulo Beta";
+            std::cout << std::endl << "Tecla >: Incrementar el ángulo seleccionado"; 
+            std::cout << std::endl << "Tecla <: Decrementar el ángulo seleccionado";
+            std::cout << std::endl << "Tecla q: menu principal"; 
+            std::cout << std::endl; 
          }
       break; 
  
@@ -275,20 +303,35 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
    }
    switch( toupper(tecla) ) {
      // DENTRO DE ILUMINACIÓN 
-      case '0' :
+      case '.' :
          if (modoVisualizar=ILUMINACION) {
-            camaraSeleccionada=0; 
-            std::cout << std::endl << "Tecla F: variación ángulo alFa" << std::endl << "Tecla B: variación ángulo beta" << std::endl; 
-         } 
-      break; 
-      case '1' :
-         if (modoVisualizar=ILUMINACION) {
-            camaraSeleccionada=1; 
-            std::cout << std::endl << "Tecla F: variación ángulo alFa" << std::endl << "Tecla B: variación ángulo beta" << std::endl; 
+            if (estaEncendida[0]) {
+               std::cout << std::endl << "Se apaga la luz Posicional" << std::endl; 
+               glDisable(GL_LIGHT1);
+               estaEncendida[0] = false; 
+            }         
+            else {
+               std::cout << std::endl << "Se enciende la luz Posicional" << std::endl; 
+               glEnable(GL_LIGHT1);
+               estaEncendida[0] = true;  
+            }
          } 
       break;
-      
-      // DENTRO DE MODO ÁNGULO 
+      case '=' :
+         if (modoVisualizar=ILUMINACION) {
+            if (estaEncendida[1]) {
+               std::cout << std::endl << "Se apaga la luz Direccional" << std::endl; 
+               glDisable(GL_LIGHT2);
+               estaEncendida[1] = false; 
+            }         
+            else {
+               std::cout << std::endl << "Se enciende la luz Direccional" << std::endl; 
+               glEnable(GL_LIGHT2);
+               estaEncendida[1] = true;  
+            }
+         } 
+      break;
+ 
       case '>' : 
          if (modoVisualizar=ILUMINACION) {
             variacionAngulo=INCREMENTA; 
@@ -325,21 +368,19 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
             std::cout  << std::endl << "Modo diferido" << std::endl;  
          }
       break; 
-      // Dentro de selección de ángulo 
+      // Dentro del modo de iluminación  
       // Esto da error porque A también es para ajedrez
       // Por eso he elegido F 
       case 'F' : 
          if (modoVisualizar=ILUMINACION) {
             seleccionAngulo = ALFA;  
-            std::cout << std::endl << "Variación del ángulo alfa" << std::endl; 
-            std::cout << "Tecla >: incremeta el ángulo" << std::endl << "Tecla <: decrementa el ángulo" << std::endl; 
-         }
+            std::cout << std::endl << "Variación del ángulo alfa" << std::endl;
+         } 
       break; 
       case 'B' : 
          if (modoVisualizar=ILUMINACION) {
             seleccionAngulo = BETA;  
             std::cout << std::endl << "Variación del ángulo beta" << std::endl; 
-            std::cout << "Tecla >: incremeta el ángulo" << std::endl << "Tecla <: decrementa el ángulo" << std::endl; 
          }
       break; 
    }  

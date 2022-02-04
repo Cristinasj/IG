@@ -50,7 +50,7 @@ class Escena
    int modoDibujar = 1; // 1 clásico 2 diferido  
    seleccionangulo seleccionAngulo = ALFA; 
    variacionangulo variacionAngulo = INCREMENTA; 
-   int camaraSeleccionada = 0; 
+   int estaEncendida [2] = {false, false}; 
 
 
    
