@@ -12,5 +12,6 @@ public:
 
     void variarAnguloAlpha(float incremento); 
     void variarAnguloBeta(float incremento);  
+    void posicionar (float alpha, float beta); 
 }; 
 #endif
