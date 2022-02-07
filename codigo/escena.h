@@ -19,11 +19,7 @@ class Escena
 {
 
    private:
-   Cubo * cubo; 
-   Esfera * esfera; 
    Humanoide * humanoide; 
-   Cuerpo * cuerpo; 
-   Brazo * brazo; 
    Pierna * pierna; 
    Materiales materiales; 
    

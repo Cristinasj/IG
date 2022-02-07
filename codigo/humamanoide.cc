@@ -14,7 +14,7 @@ Humanoide::Humanoide() {
 void Humanoide::dibujar() {
     glPushMatrix();
         glTranslatef(0.0, movimientoCabeza, 0.0); 
-        glTranslatef(0.0, 275.0, 0.0); 
+        glTranslatef(0.0, 250.0, 0.0); 
         cabeza->dibujar();
     glPopMatrix();
     glPushMatrix(); 
@@ -22,7 +22,20 @@ void Humanoide::dibujar() {
         cuerpo->dibujar();  
     glPopMatrix();   
     glPushMatrix();
-        brazoDerecho->dibujar();  
+        glRotatef(giroHombro, 0.0,1.0,0.0);
+        glTranslatef(50.0,200.0,0.0);  
+        brazoIzquierdo->dibujar(); 
+    glPopMatrix(); 
+    glPushMatrix();
+        glRotatef(giroHombro, 0.0,1.0,0.0);
+        glRotatef(180,0.0,1.0,0.0); 
+        glTranslatef(50.0,200.0,0.0);  
+        brazoDerecho->dibujar(); 
+    glPopMatrix(); 
+    piernaDerecha->dibujar(); 
+    glPushMatrix(); 
+        glRotatef(180, 0.0, 1.0, 0.0); 
+        piernaIzquierda->dibujar(); 
     glPopMatrix(); 
 }
 
@@ -33,7 +46,7 @@ Cabeza::Cabeza() {
     coletaIzq = new Cubo(); 
     coletaIzq->setMaterial(materiales.pelo); 
     craneo = new Esfera();        
-    craneo->setMaterial(materiales.camiseta);  
+    craneo->setMaterial(materiales.piel);  
     nariz = new Tetraedro(); 
     nariz->setMaterial(materiales.piel);  
 }
@@ -45,8 +58,8 @@ void Cabeza::dibujar() {
             glTranslatef(0.0,0.0,25.0); 
             nariz->draw();
         glPopMatrix();  
-        glScalef(0.5, 3.0, 0.5);
-        glTranslatef(40.0,-5.0, -40.0 ); 
+        glScalef(0.5, 7.0, 0.5);
+        glTranslatef(40.0,-10.0, -40.0 ); 
         coletaDer->draw();
         glTranslatef(-80.0,0.0,0.0 ); 
         coletaIzq->draw(); 
@@ -76,18 +89,44 @@ void Cuerpo::dibujar(){
 
 Brazo::Brazo() {
     hombro = new Cubo(); 
+    hombro->setMaterial(materiales.piel); 
     guante = new Cubo(); 
+    guante->setMaterial(materiales.negro); 
 }
 
 void Brazo::dibujar() {
-
+    glPushMatrix();
+        glScalef(2.0,1.0,1.0); 
+        glTranslatef(12.5,12.5,0.0); 
+        hombro->draw(); 
+    glPopMatrix();
+    glPushMatrix();  
+        glRotatef(giroAntebrazo, 0.0, 1.0, 0.0);
+        glTranslatef(50.0,0.0,0.0); 
+        glScalef(3.0,1.0,1.0); 
+        glTranslatef(12.5,12.5,0.0); 
+        guante->draw(); 
+    glPopMatrix(); 
 }
 
 Pierna::Pierna() {
-    muslo = new Cubo(); 
+    muslo = new Cubo();
+    muslo->setMaterial(materiales.piel);  
     bota = new Cubo(); 
+    bota->setMaterial(materiales.negro); 
 }
 
 void Pierna::dibujar() {
-    
+    glPushMatrix();
+        glScalef(38.0/25.0, 1.0, 1.0); 
+        glTranslatef(20, 75, 0); 
+        glTranslatef(0.0,12.5,0.0); 
+        muslo->draw(); 
+    glPopMatrix(); 
+    glPushMatrix(); 
+        glScalef(38.0/25.0, 3.0, 1.0); 
+        glTranslatef(20.0,0.0, 0.0);  
+        glTranslatef(0.0,12.5,0.0); 
+        bota->draw(); 
+    glPopMatrix();  
 }

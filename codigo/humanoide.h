@@ -21,6 +21,7 @@ class Brazo {
 private: 
     Cubo * hombro; 
     Cubo * guante; 
+    float giroAntebrazo = 0.0; 
     Materiales materiales; 
 public: 
     Brazo(); 
@@ -56,7 +57,6 @@ private:
     Pierna * piernaDerecha; 
     Pierna * piernaIzquierda; 
     float movimientoCabeza = 0.0; 
-    float giroAntebrazo = 0.0; 
     float giroHombro = 0.0; 
 public: 
     Humanoide(); 

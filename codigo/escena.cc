@@ -23,11 +23,7 @@ Escena::Escena()
 
    // Crear los objetos de la escena
    humanoide = new Humanoide(); 
-   cuerpo = new Cuerpo(); 
-   brazo = new Brazo(); 
    pierna = new Pierna(); 
-   cubo = new Cubo(); 
-   esfera = new Esfera();
    
    // Luces de la escena 
    Tupla3f posicion = Tupla3f(0.0, 0.0, 0.0); 
@@ -129,16 +125,8 @@ void Escena::dibujar()
    */   
 
    glPushMatrix(); 
-      glTranslatef(50.0,0,-50.0); 
-      cubo->setMaterial(materiales.pelo);  
-      cubo->draw(modoDibujar, modoVisualizar); 
+      humanoide->dibujar(); 
    glPopMatrix(); 
-   glPushMatrix(); 
-      glTranslatef(-50.0,0, -50.0); 
-      esfera->setMaterial(materiales.camiseta);  
-      esfera->draw(modoDibujar, modoVisualizar); 
-   glPopMatrix(); 
-   cuerpo->dibujar(); 
    
 }
 
