@@ -21,10 +21,11 @@ class Brazo {
 private: 
     Cubo * hombro; 
     Cubo * guante; 
-    float giroAntebrazo = 0.0; 
+    float anguloCodo = 0.0;  // Entre 0 y 90 
     Materiales materiales; 
 public: 
-    Brazo(); 
+    Brazo();
+    void modificarGiroCodo(float incremeneto);  
     void dibujar(); 
 }; 
 
@@ -56,11 +57,17 @@ private:
     Brazo * brazoIzquierdo; 
     Pierna * piernaDerecha; 
     Pierna * piernaIzquierda; 
-    float movimientoCabeza = 0.0; 
-    float giroHombro = 0.0; 
+    float anguloHombroDerecho = 0.0; // Entre 0 y 90
+    float anguloHombroIzquierdo = 0.0; // Entre 0 y 90 
+    float alturaCabeza = 0.0; // Entre 0 y -20
 public: 
     Humanoide(); 
     void dibujar(); 
+    void modificarGiroHombroDerecho(float incremento);
+    void modificarGiroHombroIzquierdo(float incremento); 
+    void modificarGiroCodoDerecho(float incremento); 
+    void modificarGiroCodoIzquierdo(float incremento); 
+    void modificarAlturaCabeza(float incremento);  
 }; 
 
 #endif

@@ -161,6 +161,17 @@ const int VARIACION = 10;
 // B 
 // = 
 // . 
+// C Aumentar la altura de la cabeza 
+// E Disminuir la altura de la cabeza 
+// 3 Aumentar el ángulo del hombro izquierdo
+// 4 Reducir el ángulo del hombro izquierdo 
+// 5 Aumentar el ángulo del hombro derecho 
+// 6 reducir el ángulo del hombro derecho 
+// 7 Aumentar el ángulo del codo izquierdo 
+// 8 Reducir el ángulo del codo izquierdo 
+// 9 Aumentar el ángulo del codo derecho 
+// 0 Reducir el ángulo del codo derecho 
+// R Reproducción automática de la animación 
 
 bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
 {
