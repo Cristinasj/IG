@@ -23,6 +23,9 @@ Escena::Escena()
 
    // Crear los objetos de la escena
    humanoide = new Humanoide(); 
+   cuerpo = new Cuerpo(); 
+   brazo = new Brazo(); 
+   pierna = new Pierna(); 
    cubo = new Cubo(); 
    esfera = new Esfera();
    
@@ -135,7 +138,7 @@ void Escena::dibujar()
       esfera->setMaterial(materiales.camiseta);  
       esfera->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-   humanoide->dibujar(); 
+   cuerpo->dibujar(); 
    
 }
 

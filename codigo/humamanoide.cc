@@ -12,7 +12,18 @@ Humanoide::Humanoide() {
 }
 
 void Humanoide::dibujar() {
-    cabeza->dibujar(); 
+    glPushMatrix();
+        glTranslatef(0.0, movimientoCabeza, 0.0); 
+        glTranslatef(0.0, 275.0, 0.0); 
+        cabeza->dibujar();
+    glPopMatrix();
+    glPushMatrix(); 
+        glTranslatef(0.0,100.0,0.0);
+        cuerpo->dibujar();  
+    glPopMatrix();   
+    glPushMatrix();
+        brazoDerecho->dibujar();  
+    glPopMatrix(); 
 }
 
 Cabeza::Cabeza() {
@@ -44,11 +55,23 @@ void Cabeza::dibujar() {
 
 Cuerpo::Cuerpo() {
     camiseta = new Cubo(); 
+    camiseta->setMaterial(materiales.camiseta); 
     falda = new Cubo(); 
+    falda->setMaterial(materiales.negro); 
 }
 
 void Cuerpo::dibujar(){
-
+    glPushMatrix(); 
+        glTranslatef(0,25.0,0);
+        glScalef(4.0, 4.0, 1.0); 
+        glTranslatef(0.0,12.5,0.0);  
+        camiseta->draw(); 
+    glPopMatrix(); 
+    glPushMatrix(); 
+        glScalef(4.0,1.0,1.0); 
+        glTranslatef(0,12.5,0);
+        falda->draw(); 
+    glPopMatrix(); 
 }
 
 Brazo::Brazo() {

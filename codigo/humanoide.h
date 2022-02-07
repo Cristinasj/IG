@@ -21,6 +21,7 @@ class Brazo {
 private: 
     Cubo * hombro; 
     Cubo * guante; 
+    Materiales materiales; 
 public: 
     Brazo(); 
     void dibujar(); 
@@ -30,6 +31,7 @@ class Pierna {
 private: 
     Cubo * muslo; 
     Cubo * bota; 
+    Materiales materiales; 
 public: 
     Pierna(); 
     void dibujar(); 
@@ -39,6 +41,7 @@ class Cuerpo {
 private: 
     Cubo * camiseta; 
     Cubo * falda; 
+    Materiales materiales; 
 public: 
     Cuerpo(); 
     void dibujar(); 
@@ -52,9 +55,9 @@ private:
     Brazo * brazoIzquierdo; 
     Pierna * piernaDerecha; 
     Pierna * piernaIzquierda; 
-    float movimientoCabeza; 
-    float giroAntebrazo; 
-    float giroHombro; 
+    float movimientoCabeza = 0.0; 
+    float giroAntebrazo = 0.0; 
+    float giroHombro = 0.0; 
 public: 
     Humanoide(); 
     void dibujar(); 

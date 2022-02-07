@@ -22,6 +22,9 @@ class Escena
    Cubo * cubo; 
    Esfera * esfera; 
    Humanoide * humanoide; 
+   Cuerpo * cuerpo; 
+   Brazo * brazo; 
+   Pierna * pierna; 
    Materiales materiales; 
    
  // ** PARÁMETROS DE LA CÁMARA (PROVISIONAL)
