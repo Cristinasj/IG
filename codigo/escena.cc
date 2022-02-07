@@ -22,7 +22,7 @@ Escena::Escena()
    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient); 
 
    // Crear los objetos de la escena
-   cabeza = new Cabeza(); 
+   humanoide = new Humanoide(); 
    cubo = new Cubo(); 
    esfera = new Esfera();
    
@@ -135,7 +135,7 @@ void Escena::dibujar()
       esfera->setMaterial(materiales.camiseta);  
       esfera->draw(modoDibujar, modoVisualizar); 
    glPopMatrix(); 
-   cabeza->dibujar(); 
+   humanoide->dibujar(); 
    
 }
 

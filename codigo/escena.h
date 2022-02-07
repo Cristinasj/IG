@@ -21,7 +21,7 @@ class Escena
    private:
    Cubo * cubo; 
    Esfera * esfera; 
-   Cabeza * cabeza; 
+   Humanoide * humanoide; 
    Materiales materiales; 
    
  // ** PARÁMETROS DE LA CÁMARA (PROVISIONAL)

@@ -1,6 +1,20 @@
 #include "aux.h"
 #include "humanoide.h"
 
+Humanoide::Humanoide() {
+    cabeza = new Cabeza(); 
+    cuerpo = new Cuerpo; 
+    brazoDerecho = new Brazo(); 
+    brazoIzquierdo = new Brazo();
+    piernaDerecha = new Pierna(); 
+    piernaIzquierda = new Pierna();  
+
+}
+
+void Humanoide::dibujar() {
+    cabeza->dibujar(); 
+}
+
 Cabeza::Cabeza() {
 
     coletaDer = new Cubo();
@@ -26,4 +40,31 @@ void Cabeza::dibujar() {
         glTranslatef(-80.0,0.0,0.0 ); 
         coletaIzq->draw(); 
     glPopMatrix(); 
+}
+
+Cuerpo::Cuerpo() {
+    camiseta = new Cubo(); 
+    falda = new Cubo(); 
+}
+
+void Cuerpo::dibujar(){
+
+}
+
+Brazo::Brazo() {
+    hombro = new Cubo(); 
+    guante = new Cubo(); 
+}
+
+void Brazo::dibujar() {
+
+}
+
+Pierna::Pierna() {
+    muslo = new Cubo(); 
+    bota = new Cubo(); 
+}
+
+void Pierna::dibujar() {
+    
 }
