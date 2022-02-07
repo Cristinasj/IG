@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-02-07T12:04:15.432Z" agent="5.0 (X11)" etag="fzbpDKNquq0WAtu-G-wN" version="16.5.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-02-07T15:15:31.783Z" agent="5.0 (X11)" etag="5WSEA_0Uw99sWwOMq94Q" version="16.5.3" type="github">
   <diagram id="krBI8kT6g6ZMfQQ0Icqa" name="Page-1">
     <mxGraphModel dx="653" dy="910" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -16,13 +16,13 @@
         <mxCell id="rHuEny_SGPfgpW1nrN5e-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="rHuEny_SGPfgpW1nrN5e-2" target="rHuEny_SGPfgpW1nrN5e-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rHuEny_SGPfgpW1nrN5e-2" value="Escalado" style="ellipse;whiteSpace=wrap;html=1;fillColor=#B9E0A5;" parent="1" vertex="1">
+        <mxCell id="rHuEny_SGPfgpW1nrN5e-2" value="E[38/25,1,1]" style="ellipse;whiteSpace=wrap;html=1;fillColor=#B9E0A5;" parent="1" vertex="1">
           <mxGeometry x="80" y="280" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="rHuEny_SGPfgpW1nrN5e-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="rHuEny_SGPfgpW1nrN5e-4" target="rHuEny_SGPfgpW1nrN5e-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rHuEny_SGPfgpW1nrN5e-4" value="Traslación" style="ellipse;whiteSpace=wrap;html=1;fillColor=#B9E0A5;" parent="1" vertex="1">
+        <mxCell id="rHuEny_SGPfgpW1nrN5e-4" value="T[20, 87&#39;5, 0]" style="ellipse;whiteSpace=wrap;html=1;fillColor=#B9E0A5;" parent="1" vertex="1">
           <mxGeometry x="80" y="410" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="rHuEny_SGPfgpW1nrN5e-6" value="Cubo" style="ellipse;whiteSpace=wrap;html=1;fillColor=#8CFFF7;" parent="1" vertex="1">
@@ -31,13 +31,13 @@
         <mxCell id="rHuEny_SGPfgpW1nrN5e-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="rHuEny_SGPfgpW1nrN5e-7" target="rHuEny_SGPfgpW1nrN5e-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rHuEny_SGPfgpW1nrN5e-7" value="Escalado" style="ellipse;whiteSpace=wrap;html=1;fillColor=#B9E0A5;" parent="1" vertex="1">
+        <mxCell id="rHuEny_SGPfgpW1nrN5e-7" value="E[38/25,3,1]" style="ellipse;whiteSpace=wrap;html=1;fillColor=#B9E0A5;" parent="1" vertex="1">
           <mxGeometry x="320" y="280" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="rHuEny_SGPfgpW1nrN5e-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="rHuEny_SGPfgpW1nrN5e-8" target="rHuEny_SGPfgpW1nrN5e-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rHuEny_SGPfgpW1nrN5e-8" value="Traslación" style="ellipse;whiteSpace=wrap;html=1;fillColor=#B9E0A5;" parent="1" vertex="1">
+        <mxCell id="rHuEny_SGPfgpW1nrN5e-8" value="T[20,12&#39;5, 0]" style="ellipse;whiteSpace=wrap;html=1;fillColor=#B9E0A5;" parent="1" vertex="1">
           <mxGeometry x="320" y="410" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
