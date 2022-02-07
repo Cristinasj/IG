@@ -52,10 +52,7 @@ void Escena::inicializar( int UI_window_width, int UI_window_height )
 
    change_projection( float(UI_window_width)/float(UI_window_height) );
 	glViewport( 0, 0, UI_window_width, UI_window_height );
-   std::cout << std::endl << "MENU: " << std::endl 
-   << "Tecla V: modo visualización" << std::endl 
-   << "Tecla D: modo dibujado" << std::endl
-   << "Tecla Q: salir" << std::endl;   
+   menuPrincipal(); 
    glEnable(GL_LIGHT0); // Defecto 
    glEnable(GL_LIGHT1); // Puntual
    glEnable(GL_LIGHT2); // Direccional  
@@ -138,8 +135,19 @@ void Escena::dibujar()
 //
 //**************************************************************************
 
+void Escena::menuPrincipal() {
+            std::cout << std::endl << "MENU PRINCIPAL" << std::endl 
+            << "Tecla V: selección de modo de visualización" << std::endl 
+            << "Tecla D: selección de modo de dibujado" << std::endl
+            << "Tecla T: quitar o poner tapas" << std::endl
+            << "Tecla N: Opciones de la animación" << std::endl
+            << "Tecla Q: salir" << std::endl;  
+ 
+}
+
 // Para variar los angulos de la luz direccional 
 const int VARIACION = 10; 
+const int VARIACION_ANIMACION = 1; 
 
 // Letras ocupadas
 // Q
@@ -161,6 +169,7 @@ const int VARIACION = 10;
 // B 
 // = 
 // . 
+// N Modo animación 
 // C Aumentar la altura de la cabeza 
 // E Disminuir la altura de la cabeza 
 // 3 Aumentar el ángulo del hombro izquierdo
@@ -183,12 +192,8 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
       case 'Q' :
          if (modoMenu!=NADA) {
             modoMenu=NADA;
-            std::cout << std::endl << "Menú reseteado" << std::endl 
-            << "Tecla V: selección de modo de visualización" << std::endl 
-            << "Tecla D: selección de modo de dibujado" << std::endl
-            << "Tecla T: quitar o poner tapas" << std::endl
-            << "Tecla Q: salir" << std::endl;  
-         }
+            menuPrincipal(); 
+        }
          else {
             salir=true ;
          }
@@ -200,6 +205,77 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          std::cout << "Modo selección de objeto" << std::endl;  
          break ;
       */
+      case 'N' :
+         std::cout << std::endl 
+         << "OPCIONES DE ANIMACIÓN" << std::endl 
+         << "C Aumentar la altura de la cabeza" << std::endl  
+         << "E Disminuir la altura de la cabeza"  << std::endl 
+         << "3 Aumentar el ángulo del hombro izquierdo"<< std::endl 
+         << "4 Reducir el ángulo del hombro izquierdo" << std::endl 
+         << "5 Aumentar el ángulo del hombro derecho" << std::endl 
+         << "6 reducir el ángulo del hombro derecho" << std::endl 
+         << "7 Aumentar el ángulo del codo izquierdo" << std::endl 
+         << "8 Reducir el ángulo del codo izquierdo" << std::endl 
+         << "9 Aumentar el ángulo del codo derecho" << std::endl 
+         << "0 Reducir el ángulo del codo derecho" << std::endl 
+         << "R Reproducción automática de la animación" << std::endl;  
+      break; 
+      case 'C' :
+         std::cout << std::endl 
+         << "Has elegido aumentar la altura de la cabeza" << std::endl; 
+         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+      break; 
+      case 'E' :
+         std::cout << std::endl 
+         << "Has elegido disminuir la altura de la cabeza" << std::endl; 
+         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+      break; 
+      case '3' :
+         std::cout << std::endl 
+         << "Has elegido aumentar el angulo del hombro izquierdo" << std::endl; 
+         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+      break; 
+      case '4' :
+         std::cout << std::endl 
+         << "Has elegido disminuir el angulo del hombro izquierdo" << std::endl; 
+         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+      break; 
+      case '5' :
+         std::cout << std::endl 
+         << "Has elegido aumentar el ángulo del hombro derecho" << std::endl; 
+         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+      break; 
+      case '6' :
+         std::cout << std::endl 
+         << "Has elegido disminuir el ángulo del hombro derecho" << std::endl; 
+         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+      break; 
+      case '7' :
+         std::cout << std::endl 
+         << "Has elegido aumentar el ángulo del codo izquierdo" << std::endl; 
+         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+      break; 
+      case '8' :
+         std::cout << std::endl 
+         << "Has elegido disminuir el ángulo del codo izquierdo" << std::endl; 
+         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+      break; 
+      case '9' :
+         std::cout << std::endl 
+         << "Has elegido aumentar el ángulo del codo derecho" << std::endl; 
+         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+      break; 
+      case '0' :
+         std::cout << std::endl 
+         << "Has elegido disminuir el ángulo del codo derecho" << std::endl; 
+         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+      break; 
+      case 'R' :
+         std::cout << std::endl 
+         << "Has elegido reproducción automática de la animación" << std::endl; 
+         std::cout << "To do" << std::endl; 
+      break; 
+
       case 'V' :
          // ENTRAMOS EN MODO SELECCION DE MODO DE VISUALIZACION
          modoMenu=SELVISUALIZACION;

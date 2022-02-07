@@ -61,6 +61,7 @@ class Escena
    Escena();
 	void inicializar( int UI_window_width, int UI_window_height );
 	void redimensionar( int newWidth, int newHeight ) ;
+   void menuPrincipal(); 
 
 	// Dibujar
 	void dibujar() ;
