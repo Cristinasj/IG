@@ -27,6 +27,8 @@ public:
     Brazo();
     void modificarGiroCodo(float incremeneto);  
     void dibujar(); 
+    bool maxCodoDerecho(); 
+    bool maxCodoIzquierdo(); 
 }; 
 
 class Pierna {
@@ -63,11 +65,17 @@ private:
 public: 
     Humanoide(); 
     void dibujar(); 
+    void animar(); 
     void modificarGiroHombroDerecho(float incremento);
     void modificarGiroHombroIzquierdo(float incremento); 
     void modificarGiroCodoDerecho(float incremento); 
     void modificarGiroCodoIzquierdo(float incremento); 
     void modificarAlturaCabeza(float incremento);  
+    bool maxHombroDerecho(); 
+    bool maxHombroIzquierdo(); 
+    bool maxCodoDerecho(); 
+    bool maxCodoIzquierdo(); 
+    bool maxCabeza(); 
 }; 
 
 #endif

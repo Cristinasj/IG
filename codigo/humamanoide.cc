@@ -12,6 +12,8 @@ Humanoide::Humanoide() {
 }
 
 void Humanoide::dibujar() {
+
+    glTranslatef(0.0, -100.0, 0.0); 
     glPushMatrix();
         glTranslatef(0.0, alturaCabeza, 0.0); 
         glTranslatef(0.0, 250.0, 0.0); 
@@ -151,6 +153,35 @@ Pierna::Pierna() {
     muslo->setMaterial(materiales.piel);  
     bota = new Cubo(); 
     bota->setMaterial(materiales.negro); 
+}
+
+bool Humanoide::maxHombroDerecho() {return anguloHombroDerecho >= 90;}
+bool Humanoide::maxHombroIzquierdo() {return anguloHombroIzquierdo <= -90;}
+bool Humanoide::maxCodoDerecho() {return brazoDerecho->maxCodoDerecho();}
+bool Humanoide::maxCodoIzquierdo() {return brazoIzquierdo->maxCodoIzquierdo();}
+
+bool Brazo::maxCodoDerecho() {return anguloCodo >= 90;}
+bool Brazo::maxCodoIzquierdo() {return anguloCodo <= -90;}
+
+void Humanoide::animar() {
+    float variacion = 1.0; 
+    if (!maxHombroDerecho())
+        modificarGiroHombroDerecho(variacion); 
+    if (maxHombroDerecho()) {
+        if (!maxHombroIzquierdo())
+           modificarGiroHombroIzquierdo(-variacion); 
+    }
+    if (maxHombroIzquierdo()) {
+      if (!maxCodoDerecho())   
+            modificarGiroCodoDerecho(variacion); 
+    }
+    if (maxCodoDerecho()) {
+        if (!maxCodoIzquierdo())
+            modificarGiroCodoIzquierdo(-variacion); 
+    }
+    std::cout << maxCodoIzquierdo(); 
+    if (maxCodoIzquierdo()) 
+        modificarAlturaCabeza(-variacion); 
 }
 
 void Pierna::dibujar() {

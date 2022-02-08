@@ -50,7 +50,7 @@ class Escena
    seleccionangulo seleccionAngulo = ALFA; 
    variacionangulo variacionAngulo = INCREMENTA; 
    int estaEncendida [2] = {false, false}; 
-
+   bool animacionAutomatica = false; 
 
    
    LuzPosicional * luzPosicional = nullptr; 
@@ -62,7 +62,8 @@ class Escena
 	void inicializar( int UI_window_width, int UI_window_height );
 	void redimensionar( int newWidth, int newHeight ) ;
    void menuPrincipal(); 
-
+   void animar(); 
+   
 	// Dibujar
 	void dibujar() ;
 

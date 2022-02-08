@@ -12,6 +12,8 @@
 
 #include "aux.h"
 #include "material.h"
+#include "textura.h"
+
 // *****************************************************************************
 //
 // clase para objetos 3D (mallas indexadas)
@@ -53,6 +55,7 @@ class Malla3D
    std::vector<Tupla3u> f ; // Caras 
    std::vector<Tupla3f> c ; // Colores 
    std::vector<Tupla3f> n ; // Normales 
+   std::vector<Tupla2f> cordenadasTextura ; 
 
    // Atributos para ajedrez modo diferido 
    std::vector<Tupla3u> carasPares; 
@@ -71,6 +74,7 @@ class Malla3D
 
    // Material 
    Material m; 
+   Textura * textura = nullptr; 
 
 } ;
 

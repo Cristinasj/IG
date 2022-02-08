@@ -273,7 +273,7 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
       case 'R' :
          std::cout << std::endl 
          << "Has elegido reproducción automática de la animación" << std::endl<< "Tecla N: volver a ver las opciones de animación" << std::endl; 
-         std::cout << "To do" << std::endl; 
+         animacionAutomatica = !animacionAutomatica; 
       break; 
 
       case 'V' :
@@ -385,12 +385,12 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          if (modoVisualizar=ILUMINACION) {
             if (estaEncendida[0]) {
                std::cout << std::endl << "Se apaga la luz Posicional" << std::endl; 
-               glDisable(GL_LIGHT1);
+               glDisable(GL_LIGHT0);
                estaEncendida[0] = false; 
             }         
             else {
                std::cout << std::endl << "Se enciende la luz Posicional" << std::endl; 
-               glEnable(GL_LIGHT1);
+               glEnable(GL_LIGHT0);
                estaEncendida[0] = true;  
             }
          } 
@@ -399,12 +399,12 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          if (modoVisualizar=ILUMINACION) {
             if (estaEncendida[1]) {
                std::cout << std::endl << "Se apaga la luz Direccional" << std::endl; 
-               glDisable(GL_LIGHT2);
+               glDisable(GL_LIGHT1);
                estaEncendida[1] = false; 
             }         
             else {
                std::cout << std::endl << "Se enciende la luz Direccional" << std::endl; 
-               glEnable(GL_LIGHT2);
+               glEnable(GL_LIGHT1);
                estaEncendida[1] = true;  
             }
          } 
@@ -531,4 +531,9 @@ void Escena::change_observer()
    glTranslatef( 0.0, 0.0, -Observer_distance );
    glRotatef( Observer_angle_y, 0.0 ,1.0, 0.0 );
    glRotatef( Observer_angle_x, 1.0, 0.0, 0.0 );
+}
+
+void Escena::animar() {
+   if (this->animacionAutomatica)
+      humanoide->animar();   
 }
