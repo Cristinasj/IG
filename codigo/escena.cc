@@ -222,57 +222,57 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
       break; 
       case 'C' :
          std::cout << std::endl 
-         << "Has elegido aumentar la altura de la cabeza" << std::endl; 
+         << "Has elegido aumentar la altura de la cabeza" << std::endl << "Tecla N: volver a ver las opciones de animación" << std::endl; 
          humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
       break; 
       case 'E' :
          std::cout << std::endl 
-         << "Has elegido disminuir la altura de la cabeza" << std::endl; 
-         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+         << "Has elegido disminuir la altura de la cabeza" << std::endl<< "Tecla N: volver a ver las opciones de animación" << std::endl; 
+         humanoide->modificarAlturaCabeza(-VARIACION_ANIMACION);  
       break; 
       case '3' :
          std::cout << std::endl 
-         << "Has elegido aumentar el angulo del hombro izquierdo" << std::endl; 
-         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+         << "Has elegido aumentar el angulo del hombro izquierdo" << std::endl<< "Tecla N: volver a ver las opciones de animación" << std::endl; 
+         humanoide->modificarGiroHombroIzquierdo(VARIACION_ANIMACION);  
       break; 
       case '4' :
          std::cout << std::endl 
-         << "Has elegido disminuir el angulo del hombro izquierdo" << std::endl; 
-         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+         << "Has elegido disminuir el angulo del hombro izquierdo" << std::endl<< "Tecla N: volver a ver las opciones de animación" << std::endl; 
+         humanoide->modificarGiroHombroIzquierdo(-VARIACION_ANIMACION);  
       break; 
       case '5' :
          std::cout << std::endl 
-         << "Has elegido aumentar el ángulo del hombro derecho" << std::endl; 
-         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+         << "Has elegido aumentar el ángulo del hombro derecho" << std::endl<< "Tecla N: volver a ver las opciones de animación" << std::endl; 
+         humanoide->modificarGiroHombroDerecho(VARIACION_ANIMACION);  
       break; 
       case '6' :
          std::cout << std::endl 
-         << "Has elegido disminuir el ángulo del hombro derecho" << std::endl; 
-         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+         << "Has elegido disminuir el ángulo del hombro derecho" << std::endl<< "Tecla N: volver a ver las opciones de animación" << std::endl; 
+         humanoide->modificarGiroHombroDerecho(-VARIACION_ANIMACION);  
       break; 
       case '7' :
          std::cout << std::endl 
-         << "Has elegido aumentar el ángulo del codo izquierdo" << std::endl; 
-         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+         << "Has elegido disminuir el ángulo del codo izquierdo" << std::endl<< "Tecla N: volver a ver las opciones de animación" << std::endl; 
+         humanoide->modificarGiroCodoIzquierdo(VARIACION_ANIMACION);  
       break; 
       case '8' :
          std::cout << std::endl 
-         << "Has elegido disminuir el ángulo del codo izquierdo" << std::endl; 
-         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+         << "Has elegido aumentar el ángulo del codo izquierdo" << std::endl<< "Tecla N: volver a ver las opciones de animación" << std::endl; 
+         humanoide->modificarGiroCodoIzquierdo(-VARIACION_ANIMACION);  
       break; 
       case '9' :
          std::cout << std::endl 
-         << "Has elegido aumentar el ángulo del codo derecho" << std::endl; 
-         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+         << "Has elegido aumentar el ángulo del codo derecho" << std::endl<< "Tecla N: volver a ver las opciones de animación" << std::endl; 
+         humanoide->modificarGiroCodoDerecho(VARIACION_ANIMACION);  
       break; 
       case '0' :
          std::cout << std::endl 
-         << "Has elegido disminuir el ángulo del codo derecho" << std::endl; 
-         humanoide->modificarAlturaCabeza(VARIACION_ANIMACION);  
+         << "Has elegido disminuir el ángulo del codo derecho" << std::endl<< "Tecla N: volver a ver las opciones de animación" << std::endl; 
+         humanoide->modificarGiroCodoDerecho(-VARIACION_ANIMACION);  
       break; 
       case 'R' :
          std::cout << std::endl 
-         << "Has elegido reproducción automática de la animación" << std::endl; 
+         << "Has elegido reproducción automática de la animación" << std::endl<< "Tecla N: volver a ver las opciones de animación" << std::endl; 
          std::cout << "To do" << std::endl; 
       break; 
 

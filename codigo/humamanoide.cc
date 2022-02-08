@@ -22,14 +22,14 @@ void Humanoide::dibujar() {
         cuerpo->dibujar();  
     glPopMatrix();   
     glPushMatrix();
-        glRotatef(anguloHombroIzquierdo, 0.0,1.0,0.0);
         glTranslatef(50.0,200.0,0.0);  
+        glRotatef(anguloHombroIzquierdo, 0.0,1.0,0.0);
         brazoIzquierdo->dibujar(); 
     glPopMatrix(); 
     glPushMatrix();
-        glRotatef(anguloHombroDerecho, 0.0,1.0,0.0);
         glRotatef(180,0.0,1.0,0.0); 
         glTranslatef(50.0,200.0,0.0);  
+        glRotatef(anguloHombroDerecho, 0.0,1.0,0.0);
         brazoDerecho->dibujar(); 
     glPopMatrix(); 
     piernaDerecha->dibujar(); 
@@ -53,10 +53,7 @@ void Humanoide::modificarGiroCodoDerecho(float incremento) {
 
 void Brazo::modificarGiroCodo(float incremento) {
     anguloCodo += incremento; 
-    if (anguloCodo > 90)
-        anguloCodo = 90; 
-    if (anguloCodo < 0)
-        anguloCodo = 0; 
+    // Aquí no hay comprobación como en los hombros porque se complica más el código
 }
 
 void Humanoide::modificarGiroCodoIzquierdo(float incremento) {
@@ -73,10 +70,10 @@ void Humanoide::modificarGiroHombroDerecho(float incremento) {
 
 void Humanoide::modificarGiroHombroIzquierdo(float incremento) {
     anguloHombroIzquierdo += incremento; 
-    if (anguloHombroIzquierdo > 90) 
-        anguloHombroIzquierdo = 90;
-    if (anguloHombroIzquierdo < 0) 
-        anguloHombroIzquierdo = 0; 
+    if (anguloHombroIzquierdo > 0) 
+        anguloHombroIzquierdo = 0;
+    if (anguloHombroIzquierdo < -90) 
+        anguloHombroIzquierdo = -90; 
 }
 
 Cabeza::Cabeza() {
@@ -141,8 +138,8 @@ void Brazo::dibujar() {
         hombro->draw(); 
     glPopMatrix();
     glPushMatrix();  
-        glRotatef(anguloCodo, 0.0, 1.0, 0.0);
         glTranslatef(50.0,0.0,0.0); 
+        glRotatef(anguloCodo, 0.0, 1.0, 0.0);
         glScalef(3.0,1.0,1.0); 
         glTranslatef(12.5,12.5,0.0); 
         guante->draw(); 
