@@ -23,8 +23,9 @@ Escena::Escena()
 
    // Crear los objetos de la escena
    humanoide = new Humanoide(); 
-   pierna = new Pierna(); 
-   
+   puerros = new Cubo(1200); 
+   puerros->setTextura("puerros.jpeg"); 
+
    // Luces de la escena 
    Tupla3f posicion = Tupla3f(0.0, 0.0, 0.0); 
    Tupla2f orientacion = Tupla2f(0.0, 0.0); 
@@ -76,6 +77,7 @@ void Escena::dibujar()
 
    if(modoVisualizar == ILUMINACION) {
       glEnable(GL_LIGHTING); 
+      glEnable(GL_TEXTURE_2D); 
    }
     // COMPLETAR
     //   Dibujar los diferentes elementos de la escena
@@ -88,23 +90,28 @@ void Escena::dibujar()
    // Modo de visualizar 
    if (modoVisualizar == PUNTOS) {
       glDisable(GL_LIGHTING); 
+      glDisable(GL_TEXTURE_2D);  
       glPointSize(1); 
       glPolygonMode(GL_FRONT, GL_POINT);
    } 
    else if (modoVisualizar == LINEAS) {
       glDisable(GL_LIGHTING); 
+      glDisable(GL_TEXTURE_2D);  
       glPolygonMode(GL_FRONT, GL_LINE);
    } 
    else if (modoVisualizar == SOLIDO) {
       glDisable(GL_LIGHTING); 
+      glDisable(GL_TEXTURE_2D);  
       glPolygonMode(GL_FRONT, GL_FILL);
    } 
    else if (modoVisualizar == AJEDREZ) {
-      glDisable(GL_LIGHTING); 
+      glDisable(GL_LIGHTING);
+      glDisable(GL_TEXTURE_2D);  
       glPolygonMode(GL_FRONT, GL_FILL);
    } 
    else if (modoVisualizar == ILUMINACION) {
       glEnable(GL_LIGHTING);
+      glEnable(GL_TEXTURE_2D); 
       // glLightfv(GL_LIGHT1, GL_DIFUSE, Tupla4f)
       // glLightfv(GL_LIGHT1, GL_SPECULAR, Tupla4f)
       // glLightfv(GL_LIGHT1, GL_AMBIENT, Tupla4f)
@@ -121,8 +128,10 @@ void Escena::dibujar()
 	}
    */   
 
+   humanoide->dibujar(); 
    glPushMatrix(); 
-      humanoide->dibujar(); 
+      glTranslatef(0.0, 500.0, -1000.0); 
+      puerros->draw(); 
    glPopMatrix(); 
    
 }

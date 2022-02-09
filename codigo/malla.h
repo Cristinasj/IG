@@ -46,6 +46,7 @@ class Malla3D
    void draw(int modo = 2, modovisualizacion modoVisualizar = SOLIDO) ;
 
    void setMaterial(Material m); 
+   void setTextura(std::string archivo); 
 
    protected:
 
@@ -55,7 +56,7 @@ class Malla3D
    std::vector<Tupla3u> f ; // Caras 
    std::vector<Tupla3f> c ; // Colores 
    std::vector<Tupla3f> n ; // Normales 
-   std::vector<Tupla2f> cordenadasTextura ; 
+   std::vector<Tupla2f> coordenadasTextura ; 
 
    // Atributos para ajedrez modo diferido 
    std::vector<Tupla3u> carasPares; 

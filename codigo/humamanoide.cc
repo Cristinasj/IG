@@ -29,8 +29,9 @@ void Humanoide::dibujar() {
         brazoIzquierdo->dibujar(); 
     glPopMatrix(); 
     glPushMatrix();
-        glRotatef(180,0.0,1.0,0.0); 
-        glTranslatef(50.0,200.0,0.0);  
+        // glRotatef(180.0,1.0,0.0,0.0); 
+        glRotatef(180.0,0.0,1.0,0.0); 
+        glTranslatef(50.0,200.0,0.0); 
         glRotatef(anguloHombroDerecho, 0.0,1.0,0.0);
         brazoDerecho->dibujar(); 
     glPopMatrix(); 
@@ -179,7 +180,6 @@ void Humanoide::animar() {
         if (!maxCodoIzquierdo())
             modificarGiroCodoIzquierdo(-variacion); 
     }
-    std::cout << maxCodoIzquierdo(); 
     if (maxCodoIzquierdo()) 
         modificarAlturaCabeza(-variacion); 
 }

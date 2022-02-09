@@ -20,9 +20,8 @@ class Escena
 
    private:
    Humanoide * humanoide; 
-   Pierna * pierna; 
-   Materiales materiales; 
-   
+   Cubo * puerros; 
+
  // ** PARÁMETROS DE LA CÁMARA (PROVISIONAL)
 
        // variables que definen la posicion de la camara en coordenadas polares

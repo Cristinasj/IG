@@ -11,6 +11,15 @@ void Malla3D::setMaterial(Material material) {
    m = material; 
 }
 
+void Malla3D::setTextura(std::string archivo) {
+   textura = new Textura(archivo);
+   textura->activar(); 
+   for (int i = 0; i < v.size(); i++)
+      // todo
+      coordenadasTextura.push_back(Tupla2f(0.5,0.6));  
+   glTexCoordPointer(2, GL_FLOAT, 0, coordenadasTextura.data()); 
+}
+
 void Malla3D::calcular_normales() {
 	// Se calculan las normales de las caras para usarlos más tarde en los vértices
 	std::vector<Tupla3f> nc; 
@@ -181,6 +190,8 @@ void Malla3D::draw_ModoDiferido_Ajedrez() {
 void Malla3D::draw(int modo, modovisualizacion visualizacion)
 {
    m.aplicar(); 
+   glEnableClientState(GL_TEXTURE_COORD_ARRAY); 
+   glTexCoordPointer(2, GL_FLOAT, 0, coordenadasTextura.data()); 
    if (visualizacion == AJEDREZ) {
 
       switch(modo) {
