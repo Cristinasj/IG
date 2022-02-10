@@ -113,6 +113,9 @@ void Malla3D::draw_ModoDiferido() {
       id_vbo_tri = CrearVBO(GL_ELEMENT_ARRAY_BUFFER, f.size()*3*sizeof(int), f.data()); 
    if (id_vbo_col==0)
       id_vbo_col = CrearVBO(GL_ARRAY_BUFFER, c.size()*3*sizeof(float), c.data()); 
+   if (id_vbo_nor==0)
+      id_vbo_nor = CrearVBO(GL_ARRAY_BUFFER, n.size()*3*sizeof(float), n.data() ); 
+
 
    // Activar VBO de vértices
    glBindBuffer(GL_ARRAY_BUFFER, id_vbo_ver);

@@ -68,6 +68,7 @@ class Malla3D
    unsigned int id_vbo_ver = 0;  
    unsigned int id_vbo_tri = 0; 
    unsigned int id_vbo_col = 0; 
+   unsigned int id_vbo_nor = 0; 
    unsigned int id_carasPares = 0; 
    unsigned int id_carasImpares = 0;  
    unsigned int id_coloresPares = 0; 
