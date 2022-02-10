@@ -126,7 +126,12 @@ void Malla3D::draw_ModoDiferido() {
    glBindBuffer(GL_ARRAY_BUFFER, id_vbo_col);
    glColorPointer(3, GL_FLOAT, 0, 0); 
    glBindBuffer(GL_ARRAY_BUFFER, 0); 
-   glEnableClientState(GL_COLOR_ARRAY); 
+   glEnableClientState(GL_COLOR_ARRAY);
+
+   glBindBuffer(GL_ARRAY_BUFFER, id_vbo_col); 
+   glColorPointer(3, GL_FLOAT, 0, 0); 
+   glBindBuffer(GL_ARRAY_BUFFER, 0); 
+   glEnableClientState(GL_NORMAL_ARRAY);  
    
    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_vbo_tri); 
    glDrawElements(GL_TRIANGLES, 3*f.size(), GL_UNSIGNED_INT, 0); 

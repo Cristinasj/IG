@@ -31,7 +31,7 @@ Escena::Escena()
    Tupla2f orientacion = Tupla2f(0.0, 0.0); 
    Tupla4f blanco = Tupla4f(1.0, 0, 1.0, 1.0);  
    luzPosicional = new LuzPosicional(posicion, GL_LIGHT1, blanco, blanco, blanco); 
-   luzDireccional = new LuzDireccional(orientacion, GL_LIGHT2, blanco, blanco, blanco); 
+   luzDireccional = new LuzDireccional(orientacion, GL_LIGHT2, blanco, blanco, blanco);
 }
 
 //**************************************************************************
@@ -54,9 +54,6 @@ void Escena::inicializar( int UI_window_width, int UI_window_height )
    change_projection( float(UI_window_width)/float(UI_window_height) );
 	glViewport( 0, 0, UI_window_width, UI_window_height );
    menuPrincipal(); 
-   glEnable(GL_LIGHT0); // Defecto 
-   glEnable(GL_LIGHT1); // Puntual
-   glEnable(GL_LIGHT2); // Direccional  
 }
 
 
@@ -134,6 +131,13 @@ void Escena::dibujar()
       puerros->draw(); 
    glPopMatrix(); 
    
+ 
+   if (estaEncendida[0])
+      glEnable(GL_LIGHT0); 
+   if (estaEncendida[1])
+      luzDireccional->activar();  
+   if (estaEncendida[2])
+      luzPosicional->activar(); 
 }
 
 //**************************************************************************
@@ -375,7 +379,7 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          if (modoMenu=SELVISUALIZACION) {
             modoVisualizar=ILUMINACION; 
             std::cout << std::endl << "Modo iluminacion activado"; 
-            std::cout << std::endl << "Tecla º: apagar/encender la luz por defecto"; 
+            std::cout << std::endl << "Tecla z: apagar/encender la luz por defecto"; 
             std::cout << std::endl << "Tecla =: apagar/encender la luz Direccional"; 
             std::cout << std::endl << "Tecla .: apagar/encender la luz Posicional"; 
             std::cout << std::endl << "Tecla F: variación del ángulo alFa";
@@ -391,24 +395,31 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
    }
    switch( toupper(tecla) ) {
      // DENTRO DE ILUMINACIÓN 
-      /*
-      case 'º' : 
+      case 'Z' : 
          if (modoVisualizar=ILUMINACION) {
-            if (estaEncendida[0])
+            if (estaEncendida[0]) {
+               std::cout << std::endl << "Se apaga la luz por defecto" << std::endl; 
+               glDisable(GL_LIGHT0); 
+               estaEncendida[0] = false; 
+            }
+            else {
+               std::cout << std::endl << "Se enciende la luz por defecto" << std::endl; 
+               glEnable(GL_LIGHT0); 
+               estaEncendida[0] = true; 
+            }
          }
       break;
-      */
       case '.' :
          if (modoVisualizar=ILUMINACION) {
             if (estaEncendida[1]) {
                std::cout << std::endl << "Se apaga la luz Posicional" << std::endl; 
-               glDisable(GL_LIGHT0);
-               estaEncendida[0] = false; 
+               glDisable(GL_LIGHT1);
+               estaEncendida[1] = false; 
             }         
             else {
                std::cout << std::endl << "Se enciende la luz Posicional" << std::endl; 
-               glEnable(GL_LIGHT0);
-               estaEncendida[0] = true;  
+               glEnable(GL_LIGHT1);
+               estaEncendida[1] = true;  
             }
          } 
       break; 
@@ -416,13 +427,13 @@ bool Escena::teclaPulsada( unsigned char tecla, int x, int y )
          if (modoVisualizar=ILUMINACION) {
             if (estaEncendida[2]) {
                std::cout << std::endl << "Se apaga la luz Direccional" << std::endl; 
-               glDisable(GL_LIGHT1);
-               estaEncendida[1] = false; 
+               glDisable(GL_LIGHT2);
+               estaEncendida[2] = false; 
             }         
             else {
                std::cout << std::endl << "Se enciende la luz Direccional" << std::endl; 
-               glEnable(GL_LIGHT1);
-               estaEncendida[1] = true;  
+               glEnable(GL_LIGHT2);
+               estaEncendida[2] = true;  
             }
          } 
       break;

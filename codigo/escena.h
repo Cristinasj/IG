@@ -45,10 +45,10 @@ class Escena
    Ejes ejes;
 	// objetovisible objetoActivo = CUBO;
    modovisualizacion modoVisualizar = ILUMINACION;
-   int modoDibujar = 2; // 1 clásico 2 diferido  
+   int modoDibujar = 1; // 1 clásico 2 diferido  
    seleccionangulo seleccionAngulo = ALFA; 
    variacionangulo variacionAngulo = INCREMENTA; 
-   int estaEncendida [2] = {false, false}; 
+   int estaEncendida [3] = {true, false, false}; 
    bool animacionAutomatica = false; 
 
    
